@@ -1,0 +1,15 @@
+{
+  "short_name": "Clipcrowd",
+  "name": "Clipcrowd",
+  "icons": [
+    {
+      "src":"logo-watermark.png",
+      "sizes": "177x33",
+      "type": "image/png"
+    }
+  ],
+  "start_url": "/",
+  "background_color": "#ffffff",
+  "Theme_color": "#179b85",
+  "display": "standalone"
+}

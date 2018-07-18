@@ -1,0 +1,357 @@
+<script type="text/ng-template" id="custom_template.html">
+    <div class="ui-notification custom-template">
+        <div class="message" ng-bind-html="message"></div>
+        <div class="message">
+            <ul>
+                <span ng-repeat="error in errors">
+                    <li ng-repeat="err in error">{{err}}</li>
+                </span>
+            </ul>
+        </div>
+    </div>
+</script>
+
+<script type="text/ng-template" id="videoPreview.html">
+	<div class="modal-body punditVideoPreview" id="modal-body" >
+			<button type="button" class="btn btn_cross" ng-click="close()" ><img src="./imgs/close-mobile-menu-22dd4d.png"></i></button>
+			<div class="text-center" ng-show="loading" >
+			<img src="./imgs/reload-c0a215.gif"  />
+			<br/>
+			<p>Publishing video. This may take a couple of minutes...</p>
+			</div>
+			<video controls ng-hide="loading" src="/story_videos/story_{{story_id}}/{{pudnitVideo.video_url}}"  controlsList="nodownload"></video>
+			<button ng-hide="loading" ng-click="publishVideo()" class="pubLsBtnD">Publish </button>
+	</div>
+</script>
+<script type="text/ng-template" id="CountDown.html">
+	<div class="modal-body confirmBox" id="modal-body" >
+		<h1 id="countD">{{countDown}}</h1>	
+	</div>
+</script>
+<script type="text/ng-template" id="confirmBox.html">
+	<div class="modal-body confirmBox" id="modal-body" >
+			<p>Do you want to save this recording?</p>
+			<button ng-click="confirm(true)" class="pubLsBtnD">Save</button>
+			<button ng-click="confirm(false)" class="pubLsBtnD">Cancel</button>
+	</div>
+</script>
+<script type="text/ng-template" id="punditRegistrationForm.html">
+	<div class="publish modal-body"  >
+		<button type="button" class="btn btn_cross" ng-click="close()" ><i class="fa fa-times fa-3x" aria-hidden="true"></i></button>
+			<form ng-submit="punditRegister()" novalidate>
+				<p ng-hide="user">
+					<label  class="required">First Name</label>
+					<input placeholder="Enter Your First Name" class="form-control" ng-model="pundit.first_name" required="" style="margin-right: 0px; padding-right: 0px;" type="text">
+				</p>
+				<p ng-hide="user">
+					<label  class="required">Last Name</label>
+					<input placeholder="Enter Your Last Name" class="form-control" ng-model="pundit.last_name" required="" style="margin-right: 0px; padding-right: 0px;" type="text">
+				</p>
+
+				<p ng-hide="user">
+					<label class="required">Email</label>
+					<input placeholder="Enter Your Email" class="form-control" ng-model="pundit.email" required="" style="margin-right: 0px; padding-right: 0px;" type="text">
+				</p>
+
+				<p>
+					<label class="required">Pundit title</label>
+					<input placeholder="Enter Pundit title" class="form-control" ng-model="pundit.video_title" required="" style="margin-right: 0px; padding-right: 0px;" type="text">
+				</p>
+
+				<p>
+					<button  class="form-control publishSubmit" ng-disabled="loader"  style="margin-right: 0px; padding-right: 0px;" type="submit">Save
+					<img src="./imgs/reload-c0a215.gif" ng-show="loader"/>
+					</button>
+				</p>
+
+			</form>
+
+	</div>
+</script>
+<div class="bg">
+	<div class="container paddXsZ">
+		<div class="rota">
+			<div class="plak">
+				<div class="col-xs-12 col-sm-2 col-md-2">
+					<a class="navbar-brand navOnHead" href="/">
+						<img src="./imgs/event_img-5b1d70.png" class="img-responsive" alt="">
+					</a>
+				</div>
+				<div class="col-xs-12 col-sm-7 col-md-7 ">
+				</div>
+				<div class="col-xs-12 col-sm-3 col-md-3">
+					<div class="loginSReg">
+						<a ui-sref="public.login" ng-hide="user">Log in / Register</a>
+
+						<div class="login" ng-show="user" uib-dropdown>
+
+
+							<a href="#" id="simple-dropdown" uib-dropdown-toggle class="fullwidthAhref">
+								<p class="">{{user.first_name}} {{user.last_name}}
+									<img src="./imgs/default-user-f4bd09.png" class="" width="50px" alt="User Image" ng-hide="user.profile_picture">
+									<img ng-src="{{user.profile_picture || '../../assets/images/default-user.png'}}" class="" ng-show="user.profile_picture"
+									 width="50px" alt="User Image"> </p>
+							</a>
+							<div class="dropdown-menu ross" uib-dropdown-menu role="menu" aria-labelledby="simple-dropdown">
+								<ul>
+									<li>
+										<a class="lineheight2" ui-sref="master.edit-profile">
+											<i class="fa fa-user" aria-hidden="true"></i> Account Settings</a>
+									</li>
+									<li ng-click="logout()">
+										<a class="lineheight2" href="#">
+											<i class="fa fa-power-off" aria-hidden="true"></i>Logout
+										</a>
+									</li>
+									<li>
+										<a class="lineheight2" href="#">
+											<i class="fa fa-question" aria-hidden="true"></i> Help</a>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-12 col-sm-12 col-xs-12 paddingZ">
+				<div class="col-md-9 col-sm-9 col-xs-12 shareLeft recrLeft paddingZ">
+					<div class="col-md-12 col-sm-12 col-xs-12 shareLeftleft">
+						<div class="col-md-12 col-sm-12 col-xs-12 shareLeftHead">
+							<h1>Welcome to Clipcrowd!</h1>
+							<p>We collect the best pieces from around the web and combine them into a story. </p>
+							<p>We want to youadd your own voice to it. Get started and click below. </p>
+						</div>
+						<div class="col-md-12 col-sm-12 col-xs-12 shareLeftmiddlevideo">
+
+							<div class="videoWrapper">
+
+								<video controls id="video" width="100%" ng-src="story_videos/story_{{video.originalVideo.id}}/{{video.originalVideo.story_published_video_url}}"
+								 controlsList="nodownload" style="max-height:500px">
+								</video>
+								<!-- <uib-progressbar class="progress-striped active" max="100" value="1" ng-model="videoTime" type="danger"><i>{{videoTime}} / 100</i></uib-progressbar>
+            					{{videoTime}} -->
+							</div>
+						</div>
+
+					</div>
+					<div ng-hide="recording.show_panel">
+						<div class="col-md-12 col-sm-12 col-xs-12 shareLeftpundit shareLeftmiddlevideo">
+
+							<h2 ng-if="video.originalVideo.event.user_id==user.id">
+								<a target="_blank" href="story_videos/story_{{video.originalVideo.id}}/{{video.originalVideo.story_published_video_url}}"
+								 download="{{video.originalVideo.story_title}}.mp4">{{video.originalVideo.story_title}}.mp4</a>
+							</h2>
+							
+
+							<a ng-click="recording.startPre()" >
+								<img src="./imgs/recording-icon-60230d.png" alt="recording icon">
+								<span>Pundit now</span>
+								<img src="./imgs/reload-c0a215.gif" ng-show="loading" />
+							</a>
+							<div class="clearfix"></div>
+							<div class="col-md-12 col-sm-12 col-xs-12 shareLeftShareit" ng-hide="recording.show_panel">
+								<p ng-hide="is_recording_done"> Share </p>
+								<ul ng-hide="is_recording_done">
+									<!-- <li>
+										<a href ng-click="sharefb()" class="sharefacebook">
+											<i class="fa fa-facebook "></i>
+										</a>
+									</li>
+									<li>
+										<a ng-click="checkTwitterAuth()" class="sharetwitter">
+											<i class="fa fa-twitter "></i>
+										</a>
+									</li>
+									<li>
+										<a ng-click="shareYouTube()" class="shareyoutube">
+											<i class="fa fa-youtube "></i>
+										</a>
+									</li>
+								</ul>
+								<ul ng-if="video.originalVideo.event.user_id!=user.id"> -->
+									<li>
+										<a ng-click="inc_share()" href="https://twitter.com/intent/tweet?text={{pageurl}}" onclick="javascript:window.open(this.href,'','menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;" class="sharetwitter"><i class="fa fa-twitter "></i></a>
+									</li>
+								
+									<li>
+										<a ng-click="inc_share()" href="https://www.facebook.com/sharer/sharer.php?u={{pageurl}}" onclick="javascript:window.open(this.href,'','menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;" class="sharefacebook"><i class="fa fa-facebook "></i></a>
+									</li>
+									<li>
+										<a ng-click="inc_share()" href="https://plus.google.com/share?url={{pageurl}}" onclick="javascript:window.open(this.href,'','menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;"  class="shareinstagram"><i class="fa fa-google-plus "></i></a> 
+									</li> 
+								
+							
+								</ul>
+							</div>
+							
+							<div class="clearfix"></div>
+							<div class="alert alert-info">
+
+								1. Start speaking to record your voice over the video<br/>
+								2. Save at the end of the recording<br/>
+								3. Preview your pundit recording<br/>
+								4. Publish and Share your Pundit
+							</div>
+						</div>
+						<div class="col-md-12 col-sm-12 col-xs-12 shareLeftpunditBottomBtn" style="margin-bottom: 30px;">
+
+							<button ng-show="is_recording_done" ng-disabled="loading" id="pubLishV" ng-click="publishVideo()">publish</button>
+							<button ng-show="is_recording_done" ng-disabled="loading" id="previewvideo" ng-click="video.videoPreview()">Preview</button>
+						</div>
+					</div>
+					<div>
+						<div ng-show="shareVideoStatus" class="col-md-12 col-sm-12 col-xs-12 shareLeftShareit">
+							<p>Share</p>
+							<ul>
+								<li>
+									<a href="#" class="sharetwitter">
+										<i class="fa fa-twitter "></i>
+									</a>
+								</li>
+								<li>
+									<a href="#" class="sharefacebook">
+										<i class="fa fa-facebook "></i>
+									</a>
+								</li>
+								<li>
+									<a href="#" class="shareinstagram">
+										<i class="fa fa-instagram "></i>
+									</a>
+								</li>
+								<li>
+									<a href="#" class="sharevimeo">
+										<i class="fa fa-vimeo   "></i>
+									</a>
+								</li>
+								<li>
+									<a href="#" class="shareyoutube">
+										<i class="fa fa-youtube "></i>
+									</a>
+								</li>
+							</ul>
+						</div>
+
+					</div>
+					<div ng-show="recording.show_panel">
+						<div class="col-md-12 col-sm-12 col-xs-12 playpause shareLeftmiddlevideo">
+							<ul class="iconIMgs">
+								<li ng-hide="recording.is_pause">
+									<a href ng-click="recording.pause()">
+										<i class="fa fa-pause" aria-hidden="true"></i>
+									</a>
+								</li>
+								<li ng-show="recording.is_pause">
+									<a href ng-click="recording.play()">
+										<i class="fa fa-play" aria-hidden="true"></i>
+									</a>
+								</li>
+								<li ng-show="audioPlayStatus">
+									<a href ng-click="recording.audio_pause()">
+										<i class="fa fa-microphone-slash" aria-hidden="true"></i>
+									</a>
+								</li>
+								<li ng-hide="audioPlayStatus">
+									<a href ng-click="recording.audio_resume()">
+										<i class="fa fa-microphone" aria-hidden="true"></i>
+									</a>
+								</li>
+
+								<li>
+									<a href ng-click="recording.reset()">
+										<i class="fa fa-repeat" aria-hidden="true"></i>
+									</a>
+								</li>
+							</ul>
+						</div>
+						<div class="col-md-12 col-sm-12 col-xs-12 shareLeftpundit ">
+							<a ng-click="recording.stop()">
+								<img src="./imgs/recording-on-d4c122.png" alt="recording icon" style="margin-top: 40px;margin-bottom: 20px;" class="rec">
+								<span style="color:#39AA97;font-weight:600">Recording</span>
+							</a>
+							<br/>
+							<div class="alert alert-info">
+
+								1. Start speaking to record your voice over the video<br/>
+								2. Save at the end of the recording<br/>
+								3. Preview your pundit recording<br/>
+								4. Publish and Share your Pundit
+							</div>
+						</div>
+					</div>
+
+
+
+				</div>
+				<div class="col-md-3 col-sm-3 col-xs-12  shareRight recrRight">
+					<div class="col-md-12 col-sm-12 col-xs-12 paddingZ shareRightBtna" ng-hide="isOriginalVideo">
+						<a ui-sref="UserStory({storyId:storyId})">View Original video </a>
+					</div>
+					<div class="col-md-12 col-sm-12 col-xs-12 paddingZ viewPundit" ng-show="video.suggestedVideos.length>0">
+						<h2>Suggested</h2>
+						<div class="viewScroll ">
+							<span ng-repeat="vid in video.suggestedVideos">
+								<a ui-sref="punditStory({storyId:vid.story_id,punditId:vid.id})">
+										<!-- <video width="100%" >
+										<source ng-src="{{'story_videos/story_'+vid.story_id+'/'+vid.new_video_url}}">
+										<source src="story_media/black.mp4"
+											type='video/mp4'/>
+										</video> -->
+										
+										<img ng-src="{{'/profile_pictures/'+vid.user.profile_picture}}" class="img-responsive" ng-show="vid.user.profile_picture"  alt="User Image">
+										<div ng-hide="vid.user.profile_picture"  style="
+											width: 100%;
+											height: 100px;
+											font-size: 50px;
+											display: flex;
+											justify-content: center;
+											align-items: center;
+											background: #353535;
+										">{{vid.user.first_name[0] | uppercase}}</div>
+									<h3>{{vid.video_name}}</h3>
+									{{vid.user.first_name}} {{vid.user.last_name}}
+								</a>
+							</span>
+							<span id="suggested_loading"></span>
+							<div class="col-xs-12 col-sm-12 col-md-12 text-center" ng-show="nextSuggestedPageloader">
+									<h5>
+									  <img src="./imgs/Spinner-16730b.gif"> Loading ...</h5>
+								  </div>
+						</div>
+					</div>
+
+					<div class="col-md-12 col-sm-12 col-xs-12 paddingZ viewPundit" ng-show="video.popularVideos.pundit_published_videos
+					.length>0" >
+						<h2>Popular Pundits</h2>
+						<div class="viewScroll1 ">
+							<span ng-repeat="vid in video.popularVideos.pundit_published_videos">
+								<a ui-sref="punditStory({storyId:vid.story_id,punditId:vid.id})">
+										<!-- <video width="100%" >
+												<source ng-src="{{'story_videos/story_'+vid.story_id+'/'+vid.new_video_url}}">
+												<source src="story_media/black.mp4"
+													type='video/mp4'/>
+												</video> -->
+									<img ng-src="{{'/profile_pictures/'+vid.user.profile_picture}}" class="img-responsive" ng-show="vid.user.profile_picture"  alt="User Image">
+									<div ng-hide="vid.user.profile_picture"  style="
+											width: 100%;
+											height: 100px;
+											font-size: 50px;
+											display: flex;
+											justify-content: center;
+											align-items: center;
+											background: #353535;
+										">{{vid.user.first_name[0] | uppercase}}</div>
+									<h3>{{vid.video_name}}</h3>
+									{{vid.user.first_name}} {{vid.user.last_name}}
+								</a>
+							</span>
+							<div id="pundit_loading"></div>
+							<div class="col-xs-12 col-sm-12 col-md-12 text-center"  ng-show="nextPageloader">
+								<h5>
+								  <img src="./imgs/Spinner-16730b.gif"> Loading ...</h5>
+							  </div>
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</div>

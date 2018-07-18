@@ -1,0 +1,240 @@
+<script type="text/ng-template" id="myModalContent.html">
+<div class="modal-body" id="modal-body" >
+    <button type="button" class="btn btn_cross" ng-click="close()" style="right: -13px !important;
+    top: 15px;"><i class="fa fa-times fa-3x" aria-hidden="true"></i></button>
+    <img  src="{{item.media_url}}" ng-show="item.media_type=='photo'" alt="" style="max-width: 100%;">
+    <video controls ng-src="{{item.media_url}}" ng-show="item.media_type=='video'" class="video_size" alt=""></video>
+</div>
+</script>
+<style type="text/css">
+    .wrapper-dropdown-5 .dropdown li a,
+    .wrapper-dropdown-5 .dropdown li a:hover {
+        padding: 0px 10px !important;
+    }
+</style>
+<div class="event_banner curate_banner">
+    <h1>{{newStory.story_title}}</h1>
+    <img src="./imgs/filder-5793cb.png" class="img-responsive" alt="">
+</div>
+<div class="curate_cnt">
+    <div class="col-xs-12 col-sm-4 col-md-3 sideBAr no_padd">
+        <div class="visible-xs toggleforMenuDiv">
+            <span class="toggleforMenu "></span>
+        </div>
+        <div id="menuSecD" class="no_padd menuSecD ">
+            <div class="sidebar">
+                <div class="col-xs-12 col-sm-12 col-md-12 no_padd">
+                    <div class="like">
+                        <div class="wrapper-demo">
+                            <div class="wrapper-dropdown-5" ng-class="active.sources?'active':''" tabindex="1">
+                                <div class="doe" ng-click="toggleNav('SOURCES')">
+                                    <span>MEDIA SOURCES</span>
+                                </div>
+                                <ul ng-show="active.sources" class="dropdown">
+                                    <li ng-repeat="(key,value) in filter.checkbox">
+                                        <div class="customs">
+                                            <div class="control-group">
+                                                <label class="control control--checkbox">{{key}}
+                                                    <input type="checkbox" ng-model="filter.checkbox[key]" />
+                                                    <div class="control__indicator"></div>
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                            ​</div>
+                    </div>
+                    <div class="like">
+                        <div class="wrapper-demo">
+                            <div class="wrapper-dropdown-5" ng-class="active.publish?'active':''" tabindex="1">
+                                <div class="doe" ng-click="toggleNav('PUBLISHED')">
+                                    <span>TIME PUBLISHED</span>
+                                </div>
+                                <ul ng-show="active.publish" class="dropdown">
+                                    <li>
+                                        <label class="control control--radio">Last 30 mins
+                                            <input type="radio" name="radio" ng-model="filter.time_publish" value="Last 30 mins" />
+                                            <div class="control__indicator"></div>
+                                        </label>
+                                    </li>
+                                    <li>
+                                        <label class="control control--radio">Last hour
+                                            <input type="radio" name="radio" ng-model="filter.time_publish" value="Last hour" />
+                                            <div class="control__indicator"></div>
+                                        </label>
+                                    </li>
+                                    <li>
+                                        <label class="control control--radio">Last 5 hours
+                                            <input type="radio" name="radio" ng-model="filter.time_publish" value="Last 5 hours" />
+                                            <div class="control__indicator"></div>
+                                        </label>
+                                    </li>
+                                    <li>
+                                        <label class="control control--radio">Last 24 hours
+                                            <input type="radio" name="radio" ng-model="filter.time_publish" value="Last 24 hours" />
+                                            <div class="control__indicator"></div>
+                                        </label>
+                                    </li>
+                                    <li>
+                                        <label class="control control--radio">This week
+                                            <input type="radio" name="radio" ng-model="filter.time_publish" value="This week" />
+                                            <div class="control__indicator"></div>
+                                        </label>
+                                    </li>
+                                    <li>
+                                        <label class="control control--radio">
+                                            <a ng-click="filter.time_publish=''; filter.dt=''" style="width: 30px; padding: 2px !important; color:#fff !important; float:right !important"  title="Reset"
+                                                href="#"> <i class="fa fa-refresh"></i>
+                                            </a>
+                                            
+                                            Custom {{filter.dt | date :'d:M:y'}}
+                                            
+                                            <span class="glyphicon glyphicon-calendar" ng-click="open1()"></span>
+                                            <input id="example1" type="radio" name="radio" ng-model="filter.time_publish" value="{{filter.dt}}" id="radio_datepicker"
+                                            />
+                                            <input type="hidden" class="form-control uib-datepicker" uib-datepicker-popup="{{format}}" ng-model="filter.dt" is-open="popup1.opened"
+                                                datepicker-options="dateOptions" ng-required="true" close-text="Close" />
+                                            <div class="control__indicator"></div>
+                                            
+                                        </label>
+                                        
+                                    </li>
+                                </ul>
+                            </div>
+                            ​</div>
+                    </div>
+                    <div class="like">
+                        <div class="wrapper-demo">
+                            <div class="wrapper-dropdown-5" ng-class="active.location?'active':''" tabindex="1">
+                                <div class="doe" ng-click="toggleNav('LOCATION')">
+                                    <span>LOCATION</span>
+                                </div>
+                                <ul ng-show="active.location" class="dropdown">
+                                    <li>
+                                        <ui-select ng-model="filter.location" theme="select2" style="width: 250px;" title="Choose a location" append-to-body="true">
+                                            <ui-select-match placeholder=" Choose a location...">{{$select.selected}}</ui-select-match>
+                                            <ui-select-choices repeat="loc in location_listing | filter: $select.search track by $index">
+                                                <span style="color:#000" ng-bind-html="loc | highlight: $select.search"></span>
+                                            </ui-select-choices>
+                                        </ui-select>
+                                    </li>
+                                    <li>
+                                        <a ng-click="filter.location=undefined" style="width: 30px; padding: 2px !important;margin-right: 15px;top:-30px;position:absolute;right:10px" class="pull-right" href="#" title="RESET"> 
+                                            <i class="fa fa-refresh"></i>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        ​</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-xs-12 col-sm-8 col-md-9 no_padd sideBArright">
+        <div class="whiteup">
+            <div class="relay">
+                <div class="col-xs-12 col-sm-12 col-md-12 no_padd">
+                    <h4>Start building your story
+
+                    </h4>
+                    <div class="create_drp_cont">
+                        <div class="list_drop">
+                            <p>Sort by:
+                                <select name="upload_type" class="edit-page-select-box" ng-model="filter.upload_type">
+                                    <option value="">Upload Date</option>
+                                    <option value="+created_at">ASC</option>
+                                    <option value="-created_at">DESC</option>
+                                </select>
+                                <!-- <select name="type" class="edit-page-select-box" ng-model="filter.type">
+                            <option value="">Media Type</option>
+                            <option value="photo">Images</option>
+                            <option value="video">Videos</option>
+                        </select> -->
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-12 col-md-12 no_padd">
+                    <div id="demo">
+                        <section id="examples">
+                            <div class="blur"></div>
+                            <div class="content  test1 mCustomScrollbar">
+                                <div ui-on-Drop="onDrop($event,$data,newStory.select_media)" class="no_border">
+                                    <div style="width: 185px; height: 150px;float: left;margin:5px;    position: relative;  border: 0px;" ui-draggable="true"
+                                        drag="item" on-drop-success="dropSuccessHandler($event,$index,newStory.select_media)"
+                                        ng-repeat="item in newStory.select_media|searchFilter2:filter.checkbox |timeFilter:filter.time_publish |locationFilter:filter.location | orderBy : filter.upload_type | filter : {'media_type':filter.type} track by $index ">
+                                        <a href="#" data-toggle="modal" data-target="#img1">
+                                            <div ng-class="'video-play-icon'">
+                                                <img style="width: 100%;position: relative;" src="{{item.media_url}}" ng-show="item.media_type=='photo'" class="img-responsive mCS_img_loaded"
+                                                    ng-click="open('lg',item,$event)" alt="">
+                                                <video style="width: 100%;" ng-src="{{item.media_url}}" ng-show="item.media_type=='video'" class="mCS_img_loaded"
+                                                    alt="" ng-click="open('lg',item,$event)"></video>
+                                                <img src="./imgs/play-9c1a34.png" class="overlay-img" ng-if="item.media_type=='video'">
+                                                <i class="imgIconFor fa fa-twitter Twter" ng-show="item.type=='twitter'"></i>
+                                                <i class="imgIconFor fa fa-hdd-o " ng-show="item.type=='uploaded'"></i>
+                                                <i class="imgIconFor fa fa-google google" ng-show="item.type=='gdrive'"></i>
+                                                <i class="imgIconFor fa fa-google-plus google-plus" ng-show="item.type=='gplus'"></i>
+                                                <i class="imgIconFor fa fa-facebook Twter" ng-show="item.type=='facebook'"></i>
+                                                <i class="imgIconFor fa fa-instagram Twter" ng-show="item.type=='instagram'"></i>
+                                                <i class="imgIconFor fa fa-dropbox dropbox" ng-show="item.type=='dropbox'"></i>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div ng-if="(newStory.select_media|searchFilter2:filter.checkbox |timeFilter:filter.time_publish |locationFilter:filter.location | orderBy : filter.upload_type | orderBy : filter.type).length==0">
+                                        <div class="alert alert-info">No Media Found</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+                </div>
+            </div>
+            <div class="vid_yu popo" ui-on-Drop="onDrop($event,$data,items2)">
+                <h4>
+                    <img src="./imgs/drag-59e190.png" alt="">
+                    <span>DRAG &amp; DROP </span> TO BUILD OR REORDER YOUR STORY</h4>
+                <div class="custom_upld " style="display:block">
+                    <div class="test mCustomScrollbar" sv-root>
+                        <div id="content_1" style="height: 120px" class="select-media scrollmenu UpldFileSpcl " sv-part="items2">
+                            <div sv-placeholder style="width: 80px;border:0px;text-align: center; padding-top:45px;height: 80px ;">
+                                <i class="fa fa-plus-circle" style="font-size:40px;text-align: center;position: absolute;top: 40px; margin-left: -20px;"></i>
+                            </div>
+
+                            <div ui-draggable="true" drag="item" on-drop-success="dropSuccessHandler($event,$index,items2)" ng-repeat="item in items2"
+                                style="position: relative; border: 0px" sv-element>
+
+                                <span style="position: initial;" ng-class="item.media_type == 'video'?'video':''">
+                                    <i class="fa fa-arrows-alt" aria-hidden="true" style="margin-left: 24px;background: #b1b1b1; border: 5px solid #b1b1b1; border-radius: 48px; font-size: 10px;"></i>
+                                    <i class="fa fa-times-cross"></i>
+
+                                    <img ng-if="item.media_type == 'photo'" src="{{item.media_url}}">
+                                    <video ng-if="item.media_type == 'video'" ng-src="{{item.media_url}}"></video>
+                                    <i class="fa fa-times-circle fa-1x" style="margin-left:-10px; font-size: 18px " ng-click="removeDragValue(item)"></i>
+
+                                    <img src="./imgs/play-9c1a34.png" class="overlay-img" ng-if="item.media_type=='video'">
+                                    <i class="imgIconFor fa fa-twitter Twter" ng-show="item.type=='twitter'"></i>
+                                    <i class="imgIconFor fa fa-hdd-o " ng-show="item.type=='uploaded'"></i>
+                                    <i class="imgIconFor fa fa-google google" ng-show="item.type=='gdrive'"></i>
+                                    <i class="imgIconFor fa fa-google-plus google-plus" ng-show="item.type=='gplus'"></i>
+                                    <i class="imgIconFor fa fa-facebook Twter" ng-show="item.type=='facebook'"></i>
+                                    <i class="imgIconFor fa fa-instagram Twter" ng-show="item.type=='instagram'"></i>
+                                    <i class="imgIconFor fa fa-dropbox dropbox" ng-show="item.type=='dropbox'"></i>
+
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="continue curate_btn">
+                    <a ui-sref="master.curate">
+                        << Back</a>
+                            <a href="#" style="margin-left:10px" ng-click="continue()" ng-class="items2.length==0?'cursorPointer':''">CONTINUE </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>

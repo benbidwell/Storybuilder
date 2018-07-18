@@ -1,0 +1,302 @@
+
+<div class="no-padding">
+    <div class="event_banner">
+    	<div class="col-sm-12"><h1>Profile </h1></div>
+    </div>
+</div>
+<div class="col-sm-12 col-xs-12 col-md-12 col-lg-12 white_bg fame">
+    <div class="create_newevent" style="background:#fff;">
+        <div >
+    	<div class="form_box completBox">
+			<form   ng-submit="editProfile()" novalidate>
+				<div class="pe-form-field pe-top-card-form__photo-field">
+					<label for="top-card-form-edit-upload-input" class="pe-form-field__label pe-top-card-form__photo-field-label">
+							Profile photo
+					</label>
+					<div id="ember8757" class="profile-photo-edit ember-view">
+						<label for="edit_profile_photo" class="profile-photo-edit__edit-btn" data-ember-action="" data-ember-action-9706="9706">
+						    <img class="profile-photo-edit__preview" alt="Edit photo" width="79" height="79" ng-hide="editForm.profile_picture"  src="./imgs/default-user-f4bd09.png"></img>
+							<img class="profile-photo-edit__preview" alt="Edit photo" width="79" height="79" ng-show="editForm.profile_picture" ngf-src="editForm.profile_picture"></img>
+							<span class="profile-photo-edit__edit-icon svg-icon-wrap"><li-icon aria-hidden="true" type="pencil-icon" size="small"><svg viewBox="0 0 24 24" width="24px" height="24px" x="0" y="0" preserveAspectRatio="xMinYMin meet" class="artdeco-icon"><g class="small-icon" style="fill-opacity: 1">
+								<path d="M14.71,4L12,1.29a1,1,0,0,0-1.41,0L3,8.85,1,15l6.15-2,7.55-7.55A1,1,0,0,0,15,4.71,1,1,0,0,0,14.71,4Zm-8.84,7.6-1.5-1.5L9.42,5.07l1.5,1.5Zm5.72-5.72-1.5-1.5,1.17-1.17,1.5,1.5Z"></path>
+							  </g></svg></li-icon>
+							</span>
+						</label>
+						<input id="edit_profile_photo" ngf-select  class="hidden" accept="image/png,image/jpg,image/jpeg" ngf-pattern="image/png,image/jpg,image/jpeg" name="profile_picture" ng-model="editForm.profile_picture" ng-change="select_image($file,editForm.profile_picture)" >
+
+
+					</div>
+					<p ng-if="maxFileSize">Image size should not exceed 1MB!</p>
+				</div>
+
+				<div class="pe-s-multi-field row">
+					<div class="pe-top-card-form__name-field col-xs-12 col-md-6 col-sm-6">
+						<label for="topcard-firstname" class="required" >First Name</label>
+						<input name="firstName"  ng-class="err['first_name']?'error':''" required="" maxlength="50" placeholder="Enter your first name" id="topcard-firstname" type="text" ng-model="editForm.first_name" class="form-control">
+					</div>
+					<div class="pe-top-card-form__name-field  col-xs-12 col-md-6 col-sm-6">
+						<label for="topcard-lastname" class="required" >Last Name</label>
+						<input name="firstName" ng-class="err['last_name']?'error':''" required="" maxlength="50" id="topcard-lastname" placeholder="Enter your last name" type="text" ng-model="editForm.last_name" class="form-control">
+					</div>
+				</div>
+
+				<div class="pe-s-multi-field row">
+					<div class="pe-top-card-form__name-field  col-xs-12 col-md-12 col-sm-12 MarginZ">
+						<label for="topcard-email" class="required" >Email</label>
+						<input name="firstName"  required=""  id="topcard-email" placeholder="Enter your email adress" type="Email" readonly ng-model="editForm.email">
+					</div>
+				</div>
+				<div class="col-xs-12 col-md-12 col-sm-12 paddingZ marSmProE">
+					<div class="col-xs-7 col-md-6 col-sm-6 paddingZ">
+						<a id="changePass" >Change Password?</a>
+
+					</div>
+					<div class="col-xs-5 col-md-6 col-sm-6 paddingZ" >
+					<button name="profileEsub" type="submit" class="profileEsubC"  ng-disabled="loader">Save<span><img class="loader" ng-show="loader" src="./imgs/Rolling-0ef9ec.gif"></span> </button>
+
+					</div>
+
+				</div>
+
+			</form>
+
+         </div>
+        </div>
+
+			<div class="popupBigPublish">
+				<div class="popupSmallPublish">
+					<div class="create_newevent">
+						<div>
+							<form class="form_box" ng-submit="changePassword()" novalidate>
+								<p>
+
+
+								<label class="required">Current password</label>
+								<input placeholder="Current password" type="Password" class="form-control" required="" ng-class="err['old_password']?'error':''" style="margin-right: 0px; padding-right: 0px;" type="password" ng-model="changePwdForm.old_password">
+								</p>
+
+								<p>
+								<label class="required">New Password</label>
+								<input placeholder="New Password" type="Password" class="form-control"  ng-class="err['password']?'error':''" required="" style="margin-right: 0px; padding-right: 0px;" type="password" ng-model="changePwdForm.password">
+								</p>
+
+								<p>
+								<label class="required">Confirm New Password</label>
+								<input placeholder="Confirm New Password" type="Password" class="form-control" ng-class="err['password_confirmation']?'error':''" required="" style="margin-right: 0px; padding-right: 0px;" type="password" ng-model="changePwdForm.password_confirmation">
+								</p>
+
+								<p>
+								<button  class="form-control publishSubmit"  style="margin-right: 0px; padding-right: 0px;" type="submit" ng-disabled="loader1"><img class="loader" ng-show="loader1" src="./imgs/reload-c0a215.gif"> Save</button>
+								</p>
+
+							 </form>
+						</div>
+						<div class="clearfix"></div>
+					</div>
+
+					<a id="clospublish" ng-click="clospublish()" ><img src="./imgs/close-mobile-menu-22dd4d.png"></a>
+				</div>
+			</div>
+        <div class="clearfix"></div>
+    </div><div class="clearfix"></div>
+</div>
+
+
+
+<script>
+
+	'use strict';
+
+	;( function ( document, window, index )
+	{
+		// feature detection for drag&drop upload
+		var isAdvancedUpload = function()
+			{
+				var div = document.createElement( 'div' );
+				return ( ( 'draggable' in div ) || ( 'ondragstart' in div && 'ondrop' in div ) ) && 'FormData' in window && 'FileReader' in window;
+			}();
+
+
+		// applying the effect for every form
+		var forms = document.querySelectorAll( '.box' );
+		Array.prototype.forEach.call( forms, function( form )
+		{
+			var input		 = form.querySelector( 'input[type="file"]' ),
+				label		 = form.querySelector( 'label' ),
+				errorMsg	 = form.querySelector( '.box__error span' ),
+				restart		 = form.querySelectorAll( '.box__restart' ),
+				droppedFiles = false,
+				showFiles	 = function( files )
+				{
+					label.textContent = files.length > 1 ? ( input.getAttribute( 'data-multiple-caption' ) || '' ).replace( '{count}', files.length ) : files[ 0 ].name;
+				},
+				triggerFormSubmit = function()
+				{
+					var event = document.createEvent( 'HTMLEvents' );
+					event.initEvent( 'submit', true, false );
+					form.dispatchEvent( event );
+				};
+
+			// letting the server side to know we are going to make an Ajax request
+			var ajaxFlag = document.createElement( 'input' );
+			ajaxFlag.setAttribute( 'type', 'hidden' );
+			ajaxFlag.setAttribute( 'name', 'ajax' );
+			ajaxFlag.setAttribute( 'value', 1 );
+			form.appendChild( ajaxFlag );
+
+			// automatically submit the form on file select
+			input.addEventListener( 'change', function( e )
+			{
+				showFiles( e.target.files );
+
+
+				triggerFormSubmit();
+
+
+			});
+
+			// drag&drop files if the feature is available
+			if( isAdvancedUpload )
+			{
+				form.classList.add( 'has-advanced-upload' ); // letting the CSS part to know drag&drop is supported by the browser
+
+				[ 'drag', 'dragstart', 'dragend', 'dragover', 'dragenter', 'dragleave', 'drop' ].forEach( function( event )
+				{
+					form.addEventListener( event, function( e )
+					{
+						// preventing the unwanted behaviours
+						e.preventDefault();
+						e.stopPropagation();
+					});
+				});
+				[ 'dragover', 'dragenter' ].forEach( function( event )
+				{
+					form.addEventListener( event, function()
+					{
+						form.classList.add( 'is-dragover' );
+					});
+				});
+				[ 'dragleave', 'dragend', 'drop' ].forEach( function( event )
+				{
+					form.addEventListener( event, function()
+					{
+						form.classList.remove( 'is-dragover' );
+					});
+				});
+				form.addEventListener( 'drop', function( e )
+				{
+					droppedFiles = e.dataTransfer.files; // the files that were dropped
+					showFiles( droppedFiles );
+
+
+					triggerFormSubmit();
+
+									});
+			}
+
+
+			// if the form was submitted
+			form.addEventListener( 'submit', function( e )
+			{
+				// preventing the duplicate submissions if the current one is in progress
+				if( form.classList.contains( 'is-uploading' ) ) return false;
+
+				form.classList.add( 'is-uploading' );
+				form.classList.remove( 'is-error' );
+
+				if( isAdvancedUpload ) // ajax file upload for modern browsers
+				{
+					e.preventDefault();
+
+					// gathering the form data
+					var ajaxData = new FormData( form );
+					if( droppedFiles )
+					{
+						Array.prototype.forEach.call( droppedFiles, function( file )
+						{
+							ajaxData.append( input.getAttribute( 'name' ), file );
+						});
+					}
+
+					// ajax request
+					var ajax = new XMLHttpRequest();
+					ajax.open( form.getAttribute( 'method' ), form.getAttribute( 'action' ), true );
+
+					ajax.onload = function()
+					{
+						form.classList.remove( 'is-uploading' );
+						if( ajax.status >= 200 && ajax.status < 400 )
+						{
+							var data = JSON.parse( ajax.responseText );
+							form.classList.add( data.success == true ? 'is-success' : 'is-error' );
+							if( !data.success ) errorMsg.textContent = data.error;
+						}
+						else alert( 'Error. Please, contact the webmaster!' );
+					};
+
+					ajax.onerror = function()
+					{
+						form.classList.remove( 'is-uploading' );
+						alert( 'Error. Please, try again!' );
+					};
+
+					ajax.send( ajaxData );
+				}
+				else // fallback Ajax solution upload for older browsers
+				{
+					var iframeName	= 'uploadiframe' + new Date().getTime(),
+						iframe		= document.createElement( 'iframe' );
+
+						$iframe		= $( '<iframe name="' + iframeName + '" style="display: none;"></iframe>' );
+
+					iframe.setAttribute( 'name', iframeName );
+					iframe.style.display = 'none';
+
+					document.body.appendChild( iframe );
+					form.setAttribute( 'target', iframeName );
+
+					iframe.addEventListener( 'load', function()
+					{
+						var data = JSON.parse( iframe.contentDocument.body.innerHTML );
+						form.classList.remove( 'is-uploading' )
+						form.classList.add( data.success == true ? 'is-success' : 'is-error' )
+						form.removeAttribute( 'target' );
+						if( !data.success ) errorMsg.textContent = data.error;
+						iframe.parentNode.removeChild( iframe );
+					});
+				}
+			});
+
+
+			// restart the form if has a state of error/success
+			Array.prototype.forEach.call( restart, function( entry )
+			{
+				entry.addEventListener( 'click', function( e )
+				{
+					e.preventDefault();
+					form.classList.remove( 'is-error', 'is-success' );
+					input.click();
+				});
+			});
+
+			// Firefox focus bug fix for file input
+			input.addEventListener( 'focus', function(){ input.classList.add( 'has-focus' ); });
+			input.addEventListener( 'blur', function(){ input.classList.remove( 'has-focus' ); });
+
+		});
+	}( document, window, 0 ));
+
+</script>
+
+<script type="text/ng-template" id="custom_template.html">
+    <div class="ui-notification custom-template">
+        <div class="message" ng-bind-html="message"></div>
+        <div class="message">
+            <ul>
+                <span ng-repeat="error in errors">
+                    <li ng-repeat="err in error">{{err}}</li>
+                </span>
+            </ul>
+        </div>
+    </div>
+</script>

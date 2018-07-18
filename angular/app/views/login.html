@@ -1,0 +1,51 @@
+<style type="text/css">
+    .custom_form .form-control.error{
+        border:1px solid red;
+    }
+    img.loader{
+        width:20px !important;
+    }
+</style>
+
+<div class="row">
+  <div class="right log_dash">
+    <div class="col-xs-12 col-sm-12 col-md-12">
+      <h3>Getting started takes less than a minute...</h3>
+    </div>
+    <form name="form" ng-submit="login()" novalidate>
+      <div class="form-group custom_form log_form col-xs-12 col-sm-12 col-md-12">
+        <input type="text" ng-model="loginForm.email" ng-class="error['email']?'error':''" class="form-control " id="exampleInputName2" placeholder="Email Id">
+      </div>
+
+      <div class=" col-xs-12 col-sm-12 col-md-12 form-group custom_form log_form">
+        <input type="password" ng-model="loginForm.password" ng-class="error['password']?'error':''" class="form-control custom_form" id="exampleInputPassword1" placeholder="Password">
+      </div>
+      <div class="col-xs-12 col-sm-12 col-md-12 maxl">
+        <a ui-sref="public.forgotpwd" class="pull-left">Forgot Password?</a>
+        <div class="control-group radio">
+          <label class="control control--checkbox">Remember Me
+                  <input type="checkbox" ng-model="loginForm.rememberMe">
+                  <div class="control__indicator"></div>
+              </label>
+        </div>
+      </div>
+      <div class="col-xs-12 col-sm-12 col-md-6"><a ui-sref="public.signup" class="pull-left noaccount-link">Don't have an account yet?</a></div>
+      <div class="col-xs-12 col-sm-12 col-md-6 ">
+        <div class="form-group custom_form">
+          <button class="btn-block signup_btn thakkad"  type="submit">LOGIN <span class="signup_loader">
+          <img class="loader" ng-show="loader" src="../../assets/images/reload.gif"></span> </button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+<script type="text/ng-template" id="custom_template.html">
+    <div class="ui-notification custom-template">
+        <div class="message" ng-bind-html="message"></div>
+        <div class="message">
+            <ul>
+              <li ng-repeat="err in errors">{{err}}</li>
+            </ul>
+        </div>
+    </div>
+</script>

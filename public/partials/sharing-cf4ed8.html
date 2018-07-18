@@ -1,0 +1,165 @@
+<div class="bg">
+	<div class="container paddXsZ">
+		<div class="rota">
+			<div class="plak">
+				<div class="col-xs-12 col-sm-2 col-md-2">
+					<a class="navbar-brand navOnHead" ui-sref="master.event">
+						<img src="./imgs/event_img-5b1d70.png" class="img-responsive" alt="">
+					</a>
+				</div>
+				<div class="col-xs-12 col-sm-7 col-md-7 ">
+				</div>
+				<div class="col-xs-12 col-sm-3 col-md-3">
+					<div class="">
+						<a href="#" ng-hide="user">Log in / Register</a>
+
+						<div class="login" ng-show="user">
+							<div class="dek dropdown" uib-dropdown="">
+								<p>{{user.first_name}} {{user.last_name}}</p>
+								<div class="drpdwwee">
+									<a href="#" id="simple-dropdown" uib-dropdown-toggle style="padding:0px 0px 12px">
+										<img src="./imgs/default-user-f4bd09.png" class="" width="50px" alt="User Image" ng-hide="user.profile_picture">
+										<img ng-src="{{apiUrl}}{{user.profile_picture}}" class="" ng-show="user.profile_picture" width="50px" alt="User Image">
+									</a>
+								</div>
+								<div class="dropdown-menu ross" uib-dropdown-menu role="menu" aria-labelledby="simple-dropdown">
+									<ul>
+										<li>
+											<a ui-sref="master.edit-profile">
+												<i class="fa fa-user" aria-hidden="true"></i>
+												<span> Account Settings</span>
+											</a>
+										</li>
+										<li ng-click="logout()">
+											<a href="#">
+												<i class="fa fa-power-off" aria-hidden="true"></i>Logout
+											</a>
+										</li>
+										<li>
+											<a href="#">
+												<i class="fa fa-question" aria-hidden="true"></i> Help</a>
+										</li>
+									</ul>
+								</div>
+
+							</div>
+
+
+							<!-- <a href="#" id="simple-dropdown" uib-dropdown-toggle  > 
+		                	<p class="">{{user.first_name}} {{user.last_name}}
+			                <img src="./imgs/default-user-f4bd09.png"  class="" width="50px" alt="User Image" ng-hide="user.profile_picture">
+			                <img ng-src="{{user.profile_picture}}"  class="" ng-show="user.profile_picture" width="50px" alt="User Image"> </p></a>
+			                </div>
+			                <div class="dropdown-menu ross" uib-dropdown-menu  role="menu" aria-labelledby="simple-dropdown">
+			                  <ul>
+			                    <li>
+			                      <a ui-sref="master.edit-profile"><i class="fa fa-user" aria-hidden="true"></i> Account Settings</a>
+			                    </li>
+			                    <li ng-click="logout()">
+			                        <a href="#">
+			                          <i class="fa fa-power-off" aria-hidden="true"></i>Logout
+			                        </a>
+			                    </li>
+			                    <li><a href="#"><i class="fa fa-question" aria-hidden="true"></i> Help</a></li>
+			                  </ul> -->
+
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-12 col-sm-12 col-xs-12 paddingZ">
+				<div class="col-md-9 col-sm-9 col-xs-12 shareLeft recrLeft paddingZ">
+					<div class="col-md-12 col-sm-12 col-xs-12 shareLeftleft">
+						<div class="col-md-12 col-sm-12 col-xs-12 shareLeftHead">
+							<h1>Welcome to Clipcrowd!</h1>
+							<p>We collect the best pieces from around the web and combine them into a story. </p>
+							<p>We want to youadd your own voice to it. Get started and click below. </p>
+						</div>
+						<div class="col-md-12 col-sm-12 col-xs-12 shareLeftmiddlevideo">
+
+							<div class="videoWrapper">
+
+								<video controls id="video" muted width="100%" style="max-height:500px" src="{{apiUrl}}{{videoUrl}}" controlsList="nodownload">
+								</video>
+
+							</div>
+						</div>
+
+					</div>
+
+					<div>
+						<div class="col-md-12 col-sm-12 col-xs-12 shareLeftShareit">
+							<p>Share</p>
+							<ul>
+								<!-- <li ng-show="isOriginalVideo">
+										<a href="https://twitter.com/intent/tweet?text={{pageurl}}" onclick="javascript:window.open(this.href,'','menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;" class="sharetwitter"><i class="fa fa-twitter "></i></a>
+								</li>
+							
+								<li ng-show="isOriginalVideo">
+									<a href="https://www.facebook.com/sharer/sharer.php?u={{pageurl}}" onclick="javascript:window.open(this.href,'','menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;" class="sharefacebook"><i class="fa fa-facebook "></i></a>
+								</li>
+								<li ng-show="isOriginalVideo">
+									<a href="https://plus.google.com/share?url={{pageurl}}" onclick="javascript:window.open(this.href,'','menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;"  class="shareinstagram"><i class="fa fa-google-plus "></i></a> 
+								</li>
+								
+								<li ng-show="isOriginalVideo">
+									<a href="http://pinterest.com/pin/create/button/?url={{pageurl}}" onclick="javascript:window.open(this.href,'','menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;" class="shareyoutube"><i class="fa fa-pinterest "></i></a>
+								</li> -->
+								<!-- Pundit Link -->
+								<li  ng-show="isOriginalVideo"><a href ng-click="sharefb()" class="sharefacebook"><i class="fa fa-facebook "></i></a></li>
+								<li ng-hide="isOriginalVideo">
+										<a ng-click="checkTwitterAuth()" class="sharetwitter"><i class="fa fa-twitter "></i></a>
+								</li>
+								<li ng-show="isOriginalVideo">
+									<a ng-click="sharetwitter()" class="sharetwitter">
+										<i class="fa fa-twitter "></i>
+									</a>
+								</li>
+								<li ng-show="isOriginalVideo">
+									<a ng-click="shareYouTube()" class="shareyoutube">
+										<i class="fa fa-youtube "></i>
+									</a>
+								</li>
+								<!-- <li ng-hide="isOriginalVideo">
+									<a ng-click="sharegplus()"  class="shareinstagram"><i class="fa fa-google-plus "></i></a> 
+								</li> -->
+							</ul>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-3 col-sm-3 col-xs-12  shareRight recrRight">
+					<div class="col-md-12 col-sm-12 col-xs-12 paddingZ shareRightBtna" ng-hide="isOriginalVideo">
+						<a ui-sref="ShareVideo({storyId:storyId})">View Original video </a>
+					</div>
+
+					<div class="col-md-12 col-sm-12 col-xs-12 paddingZ viewPundit" ng-show="suggestedVideos.length>0">
+						<h2>Suggested</h2>
+						<div class="viewScroll mCustomScrollbar">
+							<span ng-repeat="vid in suggestedVideos">
+								<a ui-sref="punditStory({storyId:vid.story_id,punditId:vid.id})">
+									<h3>{{vid.video_name}}</h3>
+									{{vid.user.first_name}} {{vid.user.last_name}}
+								</a>
+							</span>
+						</div>
+					</div>
+
+					<div class="col-md-12 col-sm-12 col-xs-12 paddingZ viewPundit" ng-show="popularVideos.length>0">
+						<h2>Popular Pundits</h2>
+						<div class="viewScroll1 mCustomScrollbar">
+							<span ng-repeat="vid in popularVideos">
+
+								<a ui-sref="punditStory({storyId:vid.story_id,punditId:vid.id})">
+									<h3>{{vid.video_name}}</h3>
+									{{vid.user.first_name}} {{vid.user.last_name}}
+								</a>
+							</span>
+
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

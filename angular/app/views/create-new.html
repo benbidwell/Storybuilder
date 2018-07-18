@@ -1,0 +1,60 @@
+<div class="no-padding">
+	<div class="event_banner">
+		<div class="col-sm-12"><h1>Create New Event </h1></div>
+	</div>
+</div>
+<div class="col-sm-12 col-xs-12 col-md-12 col-lg-12 white_bg fame">
+	<div class="create_newevent">
+		<div >
+			<div class="form_box">
+			<form ng-submit="createEvent()" novalidate>
+				<p>
+					<label class="required">Event title </label>
+					<input placeholder="Enter Event Name"  ng-class="err['event_title']?'error':''" class="form-control" required type="text" ng-model="eventForm.event_title">
+				</p>
+				<p>
+					<label>Event Description</label>
+					<textarea placeholder="Enter Description"  ng-class="err['event_details']?'error':''" rows="2" cols="2" class="form-control" ng-model="eventForm.event_details" ></textarea>
+				</p>
+		
+				<div class="box">
+
+					<div class="box__input drag_text">
+						<div ngf-drop="" ngf-select=""  class="drop-box"
+		                    ngf-drag-over-class="dragover"  ngf-allow-dir="true" accept="image/*"
+		                    ngf-pattern="'image/*'"  ng-model="eventForm.event_picture" ng-required>
+		                    <div id="dropImg" data-hover-title="Drop Image Here" data-title="Click to Upload Event Images" ng-hide="eventForm.event_picture">
+		                        Click to Upload Event Images
+		                    </div>
+		                    <img width="100%" height="100%" ng-show="eventForm.event_picture" ngf-src="eventForm.event_picture"></img>
+		                </div>
+		                <i class="fa fa-times edit-page-cross-icon" ng-if="eventForm.event_picture" title="Remove Image"  ng-click="remove_image(eventForm.id)" aria-hidden="true"></i>
+		                <div ngf-no-file-drop>File Drag/Drop is not supported for this browser</div>
+					</div>
+				</div>
+				<div class="pack">
+					<div class="button_package">
+						<button type="reset" class="btn adda" onclick="window.history.back();">Cancel</button>
+						<button  class="btn moo_btn" type="submit" ng-disabled="loader"><img class="loader" ng-show="loader" src="../../assets/images/reload.gif">Continue</button>
+					</div>
+
+				</div>
+			</form>
+			</div>
+		</div>
+		<div class="clearfix"></div>
+	</div>
+	<div class="clearfix"></div>
+</div>
+<script type="text/ng-template" id="custom_template.html">
+    <div class="ui-notification custom-template">
+        <div class="message" ng-bind-html="message"></div>
+        <div class="message">
+            <ul>
+                <span ng-repeat="error in errors">
+                    <li ng-repeat="err in error">{{err}}</li>
+                </span>
+            </ul>
+        </div>
+    </div>
+</script>

@@ -1,0 +1,264 @@
+<div class="story_banner" style="">
+  <div class="story">
+    <div class="col-xs-12 col-sm-12 col-md-10 col-md-offset-1">
+      <div class="story_center_block">
+        <h1>{{event.event_title}}</h1>
+        <div class="top-hit-profile pull-right" uib-dropdown>
+          <a href="#" class="dropdown-toggle pull-right hit"  id="story-dropdown" uib-dropdown-toggle > <img src="./imgs/dots-93ee29.png" class="img-responsive" alt=""> </a>
+          <ul id="dropdown2" class="dropdown-menu" aria-labelledby="dLabel">
+            <li>
+              <a href="#" ng-click="deleteEvent(event.id)">
+                <i class="fa fa-trash" aria-hidden="true"></i>
+                <img src="./imgs/reload-c0a215.gif" class="publishLoader" ng-show="loader"/>
+                Delete
+
+              </a>
+            </li>
+            <li><a href="#" ui-sref="master.edit-event({id:event.id})" ><i class="fa fa-pencil" aria-hidden="true"></i>Edit</a></li>
+          </ul>
+        </div>
+        <div class="views"><i class="fa fa-video-camera" aria-hidden="true"></i> <span> {{event.storiesCount}} </span></div>
+        <p>Out of {{fb.view}} views</p>
+        <div class="prgrss_bar first">
+          
+          <div class="col-xs-12 col-sm-12 col-md-4">
+            <div class="circle">
+              <div class="forth circle">
+                <span><img src="./imgs/upload-533401.png" class="img-responsive" alt=""><br>
+                      </span>
+              </div>
+            </div>
+            <div id="asdfa" style="
+                top: 85px;
+                left: 60px;
+                position: absolute;
+            ">{{fb.share}} SHARES</div>
+          </div>
+          <div class="col-xs-12 col-sm-12 col-md-4">
+            <div class="circle">
+              <div class="forth circle">
+                <span><img src="./imgs/thumbs-e15e2b.png" class="img-responsive" alt=""><br>
+                 </span>
+              </div>
+            </div>
+            <div id="asdfa" style="
+                top: 85px;
+                left: 63px;
+                position: absolute;
+            ">{{fb.like}} LIKES</div>
+          </div>
+          <div class="col-xs-12 col-sm-12 col-md-4">
+            <div class="circle">
+              <div class="forth circle">
+                <span><img src="./imgs/mail_stry-ee0772.png" class="img-responsive" alt=""><br> </span>
+              </div>
+            </div>
+            <div id="asdfa" style="
+                top: 85px;
+                left: 40px;
+                position: absolute;
+            ">{{fb.comment}} COMMENTS</div>
+          </div>
+        </div>
+        
+        <div class="clearfix"></div>
+        <br/>
+        <a ng-click="refreshFbStats()" class="btn btn-default btn-sm">Refresh FB Stats</a>
+        <a ng-click="refreshStats()" class="btn btn-default btn-sm">Refresh Youtube Stats</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="fame">
+  <div class="row">
+    
+    <div class="col-xs-12 col-sm-5 col-md-5 visible-lg visible-md" style="    padding: 0;    padding-left: 5px;">
+      <ul class="nav nav-tabs zotac" role="tablist">
+          <li role="presentation" ng-class="tab.thumbnail?'active':''"><a href="#" aria-controls="thumbnail" role="tab" data-toggle="tab" ng-click="switchTab('thumbnail')"><img src="./imgs/thumbnail_menu1-572c9b.png" class="img-responsive" alt=""></a></li>
+          <li role="presentation" ng-class="tab.list?'active':''"><a href="#" aria-controls="list" role="tab" data-toggle="tab" ng-click="switchTab('list')"><img src="./imgs/list_menu1-5a19c0.png" class="img-responsive" alt=""></a></li>
+          
+        </ul>
+      
+      <div class="sort">
+        
+        
+        <div id="dd" class="wrapper-dropdown-2" tabindex="1">Sort by:
+          <ul class="dropdown">
+            <li><a ng-click="sorting('Latest added')">Latest added </a></li>
+            <li><a ng-click="sorting('A to Z')">A to Z</a></li>
+            <li><a ng-click="sorting('Z to A')">Z to A</a></li>
+            <li><a ng-click="sorting('Maxmium Views')">Maxmium Views</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="col-xs-12 col-sm-2 col-md-2">
+       <ul class="nav nav-tabs" role="tablist">
+          <li ng-show="tab.list"><a ui-sref="master.add-story({id:event.id})" ><i class="fa fa-plus" aria-hidden="true"></i> Create New Story</a></li>
+        </ul>
+    </div>
+
+    <div class="col-xs-12 col-sm-5 col-md-5  visible-lg visible-md">
+      <div class="custom_srchbx">
+        <form>
+          
+          <input story-auto-complete ng-model="search" ng-change="resetStories(search)" placeholder="Search..." type="text">
+        </form>
+      </div>
+    </div>
+    
+    
+    <div class="col-xs-7 col-sm-6 col-md-6  visible-xs">
+      <div class="custom_srchbx">
+        <form>
+          <input story-auto-complete ng-model="search" ng-change="resetStories(search)" placeholder="Search..." type="text">
+        </form>
+      </div>
+    </div>
+    <div class="col-xs-4 col-sm-6 col-md-6 visible-xs"  style="padding-left: 8px;">
+      <ul class="nav nav-tabs zotac" role="tablist">
+        <li role="presentation" ng-class="tab.thumbnail?'active':''"><a href="#thumbnail" aria-controls="thumbnail" role="tab" data-toggle="tab" ng-click="switchTab('thumbnail')"><img src="./imgs/thumbnail_menu1-572c9b.png" class="img-responsive" alt=""></a></li>
+        <li role="presentation" ng-class="tab.list?'active':''"><a href="#list" aria-controls="list" role="tab" data-toggle="tab" ng-click="switchTab('list')"><img src="./imgs/list_menu1-5a19c0.png" class="img-responsive" alt=""></a></li>
+      </ul>
+    </div>
+    
+    <div class="col-xs-12 col-sm-12 col-md-6 visible-xs visible-sm  sort col-sm-offset-0 col-xs-offset-0 col-md-offset-3">
+      
+      <div id="dd2" class="wrapper-dropdown-3" tabindex="1">Sort by:
+        <ul class="dropdown">
+            <li><a ng-click="sorting('Latest added')">Latest added</a></li>
+            <li><a ng-click="sorting('A to Z')">A to Z</a></li>
+            <li><a ng-click="sorting('Z to A')">Z to A</a></li>
+            <li><a ng-click="sorting('Maxmium Views')">Maxmium Views</a></li>
+        </ul>
+      </div>
+    </div>
+    
+    <div class="col-xs-12 col-sm-12 col-md-12 padd_left">
+      <div class="tab-content">
+        <div role="tabpanel" class="tab-pane row-eq-height " ng-class="tab.thumbnail?'active':''" id="thumbnail">
+          <div class="col-xs-12 col-sm-6 col-md-3 col-xsl-6">
+            <div class="create_new">
+              <div class="play">
+                <a ui-sref="master.add-story({id:event.id})" class="green">
+                  <!--<div class="hov_green"><a href="#">&nbsp;</a></div>-->
+                CREATE NEW STORY</a>
+              </div>
+            </div>
+          </div>
+          <div when-scrolled="nextPage()" id="flux">
+            <div class="col-xs-12 col-sm-6 col-md-3 col-xsl-6" ng-repeat="story in stories|orderBy:sort_type">
+              <div class="create_new">
+                <div class="play">
+                  <div class="hone"> <a href="#">
+                    <img src="/story_pictures/{{story.story_picture}}" ng-show="story.story_picture" class="" >
+                    <img src="./imgs/placeholder_event-688820.png" class="img-responsive" ng-hide="story.story_picture" alt="">
+                  </a> </div>
+                  <div class="dream">
+                    <h3>{{story.story_title}}</h3>
+                    <div class="bott">
+                      <div class="left">
+                        <p><span><i class="fa fa-video-camera" aria-hidden="true"></i></span>&nbsp;&nbsp;&nbsp;&nbsp;0</p>
+                      </div>
+                      <div class="right pop" uib-dropdown>
+                        <a href="#"  id="simple-dropdown" uib-dropdown-toggle class="dropdown-menu1 dropdown-toggle"  aria-expanded="false">
+                          <img src="./imgs/dots-93ee29.png" class="img-responsive" alt="">
+                        </a>
+                        <div id="dropdown2" class="dropdown-menu" uib-dropdown-menu aria-labelledby="simple-dropdown">
+                          <a ng-if="story.story_published_video_url" target="_blank" href="/story_videos/story_{{story.id}}/{{story.story_published_video_url}}" download><i class="fa fa-download" aria-hidden="true"></i>Download</a>
+                          <a href="#" ng-click="deleteStory(story.id)"><i class="fa fa-trash" aria-hidden="true"></i>Delete</a>
+                          
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div role="tabpanel" class="tab-pane" ng-class="tab.list?'active':''" id="list">
+          <div when-scrolled="nextPage()" id="flux">
+            <div class="mausam" ng-repeat="story in stories|orderBy:sort_type">
+              <div class="col-xs-12 col-sm-12 col-md-4 col-xsl-6">
+                <div class="tera">
+                  <img src="/story_pictures/{{story.story_picture}}" ng-show="story.story_picture" class="" alt="{{story.story_title}}" >
+                  <img src="./imgs/placeholder_event-688820.png" class="img-responsive" ng-hide="story.story_picture" alt="{{story.story_title}}">
+                </div>
+                <div class="dream" >
+                  <div class="bott free1 visible-xs ">
+                    <div class="left">
+                      <p><span><i class="fa fa-video-camera" aria-hidden="true"></i></span>&nbsp;&nbsp;&nbsp;&nbsp;0</p>
+                    </div>
+                    <div class="right pop"> <a href="#" class="dropdown-menu1 dropdown-toggle" data-toggle="dropdown" aria-expanded="false"> <img src="./imgs/dots-93ee29.png" class="img-responsive" alt=""> </a>
+                    <div id="dropdown2" class="dropdown-menu" aria-labelledby="dLabel"> <a href="#"><i class="fa fa-trash" aria-hidden="true"></i>Delete</a> <a href="#"><i class="fa fa-pencil" aria-hidden="true"></i>Edit</a> <a href="#"><i class="fa fa-eye" aria-hidden="true"></i>View</a> </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-8 col-xsl-6">
+              <div class="list_type">
+                <h3 class="grid_h3">{{story.story_title}}</h3>
+                <p class="trac">{{story.story_details}} </p>
+                <div class="blk visible-lg visible-md visible-sm">
+                  <div class="left">
+                    <p><span><i class="fa fa-video-camera" aria-hidden="true"></i></span>&nbsp;&nbsp;&nbsp;&nbsp;21</p>
+                  </div>
+                 
+                <div class="right pop" uib-dropdown>
+                  <a href="#"  id="simple-dropdown" uib-dropdown-toggle class="dropdown-menu1 dropdown-toggle"  aria-expanded="false">
+                    <img src="./imgs/right_dot-60298d.png" class="img-responsive" alt="">
+                  </a>
+                  <div id="dropdown2" class="dropdown-menu" uib-dropdown-menu aria-labelledby="simple-dropdown">
+                    <a href="#" ng-click="deleteStory(story.id)"><i class="fa fa-trash" aria-hidden="true"></i>Delete</a>
+                   
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="col-xs-12 col-sm-12 col-md-12 text-center" ng-show="nextPageloader">
+      <h5><img  src="./imgs/Spinner-16730b.gif"> Loading ...</h5>
+      </div>
+</div>
+</div>
+
+<script type="text/ng-template" id="deleteStory.html">
+  
+   <div class="event_delete modal-body">
+        <header>
+          <img src="./imgs/danger-ecffdc.png" />
+          <h1>Delete Story<span>{{deleteMsg ||"This action cannot be undo."}}</span></h1>
+        </header>
+      <footer>
+         <button class="btn btn-primary" type="button" ng-click="ok()">
+            <img src="./imgs/reload-c0a215.gif" class="publishLoader" ng-show="loader"/>  
+          Delete</button>
+         <button class="btn btn-warning" type="button" ng-click="close()" >Cancel</button>        
+      </footer> 
+   </div>
+  
+  
+</script>
+<script type="text/ng-template" id="deleteEvent.html">
+  
+   <div class="event_delete modal-body">
+        <header>
+          <img src="./imgs/danger-ecffdc.png" />
+          <h1>Delete Event<span>{{deleteMsg ||"This action cannot be undo."}}</span></h1>
+        </header>
+      <footer>
+         <button class="btn btn-primary" type="button" ng-click="ok()">
+          <img src="./imgs/reload-c0a215.gif" class="publishLoader" ng-show="loader"/> Delete</button>
+         <button class="btn btn-warning" type="button" ng-click="close()" >Cancel</button>        
+      </footer> 
+   </div>
+  
+  
+</script>

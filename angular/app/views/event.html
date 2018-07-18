@@ -1,0 +1,172 @@
+
+<div class="event_banner">
+      <div class="col-sm-12"><h1>My Events </h1></div>
+ </div>
+<div class="fame">
+     <div class="row">
+        <div class="alert alert-warning" ng-if="user.authorized==0">
+            <div>You account is not authorized</div>
+          </div>
+      <div class="col-xs-12 col-sm-5 col-md-5 visible-lg visible-md visible-sm"  style="padding-left: 8px;">
+        <ul class="nav nav-tabs" role="tablist">
+
+          <li role="presentation" ng-class="tab.thumbnail?'active':''"><a  aria-controls="thumbnail" role="tab" data-toggle="tab" ng-click="switchTab('thumbnail')"><img src="../../assets/images/thumbnail_menu1.png" class="img-responsive" alt=""></a></li>
+          <li role="presentation" ng-class="tab.list?'active':''"><a  aria-controls="list" role="tab" data-toggle="tab" ng-click="switchTab('list')"><img src="../../assets/images/list_menu1.png" class="img-responsive" alt=""></a></li>
+         <li></li>
+        </ul>
+      </div>
+      
+      <div class="col-xs-12 col-sm-2 col-md-2 visible-lg visible-md visible-sm"   style="padding-left: 8px;"  ng-if="user.authorized==1">
+        <ul class="nav nav-tabs" role="tablist">
+          <li ng-show="tab.list"><a ui-sref="master.create-new" ><i class="fa fa-plus" aria-hidden="true"></i> Create New Event</a></li>
+        </ul>
+      </div>
+      <div class="col-xs-12 col-sm-5 col-md-5  visible-lg visible-md visible-sm">
+        <div class="custom_srchbx">
+         
+            <!-- <input type="text" name="search" ng-model="search" ng-change="searchEvent()" placeholder="Search..."> -->
+             <input client-auto-complete ng-model="ctrl.search.name" ng-change="searchEvent(ctrl.search.name)"placeholder="Search..." type="text">
+                            
+              <input client-auto-complete ng-model="ctrl.search.id" placeholder="Search..." type="hidden">
+
+         
+        </div>
+      </div>
+      
+      <div class="col-xs-7 col-sm-6 col-md-6  visible-xs">
+        <div class="custom_srchbx">
+          <form>
+            <input type="text" name="search" ng-model="search" ng-change="searchEvent()" placeholder="Search...">
+          </form>
+        </div>
+      </div>
+      <div class="col-xs-4 col-sm-6 col-md-6 visible-xs"  style="padding-left: 8px;" >
+        <ul class="nav nav-tabs zotac" role="tablist">
+          <li role="presentation" ng-class="tab.thumbnail?'active':''"><a href="#thumbnail" aria-controls="thumbnail" role="tab" data-toggle="tab" ng-click="switchTab('thumbnail')"><img src="../../assets/images/thumbnail_menu1.png" class="img-responsive" alt=""></a></li>
+          <li role="presentation" ng-class="tab.list?'active':''"><a href="#list" aria-controls="list" role="tab" data-toggle="tab" ng-click="switchTab('list')"><img src="../../assets/images/list_menu1.png" class="img-responsive" alt=""></a></li>
+        </ul>
+      </div>
+      
+      
+      <div class="col-xs-12 col-sm-12 col-md-12 padd_left">
+
+        <div class="tab-content" >
+          <div role="tabpanel" class="tab-pane row-eq-height " ng-class="tab.thumbnail?'active':''" id="thumbnail">
+            <div class="col-xs-12 col-sm-6 col-md-3 col-xsl-6" ng-if="user.authorized==1">
+              <div class="create_new">
+               <div class="play">
+                <a ui-sref="master.create-new" class="green">
+                  <!--<div class="hov_green"><a href="#">&nbsp;</a></div>-->
+                  CREATE NEW EVENT</a> 
+                </div>
+              </div>
+            </div>
+
+            <div when-scrolled="nextPage()" id="flux">
+              <div class="col-xs-12 col-sm-6 col-md-3 col-xsl-6" ng-repeat="event in events">
+                <div class="create_new" ng-if="event.id">
+                  <div class="play">
+                    <div class="hone"> <a href="#"> 
+                     <!--  {{event.event_picture}} -->
+                       <img  class="img-responsive" ng-show="event.event_picture == ''" src="../../assets/images/placeholder_event.png" alt="">
+                      <img  ng-hide="event.event_picture == ''"  ng-src="/event_pictures/{{event.event_picture}}"class="" >
+                     
+                    </a> </div>
+                    <div class="dream">
+                      <a ui-sref="master.stories({id:event.id})" class="nohoverColor" > <h3> {{event.event_title}} </h3></a>
+                      <div class="bott">
+                        <div class="left">
+                          <p><span><i class="fa fa-video-camera" aria-hidden="true"></i></span>&nbsp;&nbsp;&nbsp;&nbsp;{{event.storiesCount}}</p>
+                        </div>
+                        <div class="right pop" ng-if="user.authorized==1" uib-dropdown>
+                         <a href="#"  id="simple-dropdown" uib-dropdown-toggle  aria-expanded="false"> 
+                            <img src="../../assets/images/dots.png" class="img-responsive" alt=""> 
+                          </a>
+                          <div id="dropdown2" class="dropdown-menu" uib-dropdown-menu aria-labelledby="simple-dropdown"> 
+                            <a href="#"  ng-click="deleteEvent(event.id)"><i class="fa fa-trash" aria-hidden="true"></i>Delete</a> 
+                            <a ui-sref="master.edit-event({id:event.id})" ><i class="fa fa-pencil" aria-hidden="true"></i>Edit</a> 
+                            <a ui-sref="master.stories({id:event.id})"><i class="fa fa-eye" aria-hidden="true"></i>View</a> 
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div role="tabpanel" class="tab-pane" ng-class="tab.list?'active':''" id="list">
+            <div when-scrolled="nextPage()" id="flux">
+              <div class="mausam" ng-repeat="event in events">
+                <div class="col-xs-12 col-sm-12 col-md-4 col-xsl-6">
+                  <div class="tera"> 
+
+                   <img src="/event_pictures/{{event.event_picture}}" ng-show="event.event_picture" class="" alt="{{event.event_title}}" >
+                    <img src="../../assets/images//placeholder_event.png" class="img-responsive" ng-hide="event.event_picture" alt="{{event.event_title}}">
+                  </div>
+                  <div class="dream" >
+                      <div class="bott free1 visible-xs ">
+                        <div class="left">
+                          <p><span><i class="fa fa-video-camera" aria-hidden="true"></i></span>&nbsp;&nbsp;&nbsp;&nbsp;{{event.storiesCount}}</p>
+                        </div>
+                        <div class="right pop"> <a href="#"  aria-expanded="false"> <img src="../../assets/images/dots.png" class="img-responsive" alt=""> </a>
+                          <div id="dropdown2" class="dropdown-menu" aria-labelledby="dLabel"> <a href="#"><i class="fa fa-trash" aria-hidden="true"></i>Delete</a> <a href="#"><i class="fa fa-pencil" aria-hidden="true"></i>Edit</a> <a href="#"><i class="fa fa-eye" aria-hidden="true"></i>View</a> </div>
+                        </div>
+                      </div>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-12 col-md-8 col-xsl-6">
+                  <div class="list_type">
+                    <h3 class="grid_h3"> <a ui-sref="master.stories({id:event.id})" >{{event.event_title}} </a></h3>
+                    <p class="trac">{{event.event_details}} </p>
+                    <div class="blk visible-lg visible-md visible-sm">
+                      <div class="left">
+                        <p><span><i class="fa fa-video-camera" aria-hidden="true"></i></span>&nbsp;&nbsp;&nbsp;&nbsp;{{event.storiesCount}}</p>
+                      </div>
+                      <!-- <div class="right scnd_pop"> <a href="#" class="dropdown-menu1 dropdown-toggle" data-toggle="dropdown" aria-expanded="false"> <img src="../../assets/images/right_dot.png" class="img-responsive" alt=""> </a>
+                        <div id="dropdown2" class="dropdown-menu drp" aria-labelledby="dLabel"> <a href="#"><i class="fa fa-trash" aria-hidden="true"></i>Delete</a> <a href="#"><i class="fa fa-pencil" aria-hidden="true"></i>Edit</a> <a href="#"><i class="fa fa-eye" aria-hidden="true"></i>View</a> </div>
+                      </div> -->
+                        <div class="right pop" ng-if="user.authorized==1" uib-dropdown>
+                            <div class="right pop"  uib-dropdown>
+                         <a href="#"  id="simple-dropdown" uib-dropdown-toggle  aria-expanded="false"> 
+                            <img src="../../assets/images/right_dot.png" class="img-responsive" alt=""> 
+                          </a>
+                          <div id="dropdown2" class="dropdown-menu" uib-dropdown-menu aria-labelledby="simple-dropdown"> 
+                            <a href="#" ng-click="deleteEvent(event.id)"><i class="fa fa-trash" aria-hidden="true"></i>Delete</a> 
+                            <a ui-sref="master.edit-event({id:event.id})" ><i class="fa fa-pencil" aria-hidden="true"></i>Edit</a> 
+                            <a ui-sref="master.stories({id:event.id})"><i class="fa fa-eye" aria-hidden="true"></i>View</a> 
+                          </div>
+                        </div>
+
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <div class="col-xs-12 col-sm-12 col-md-12 text-center" ng-show="nextPageloader">
+          <h5><img  src="../../assets/images/reload.gif"> Loading ...</h5>
+      </div>
+     </div> 
+</div> 
+<script type="text/ng-template" id="deleteEvent.html">
+  
+   <div class="event_delete modal-body">
+        <header>
+          <img src="../../assets/images/danger.png" />
+          <h1>Delete Event<span>{{deleteMsg || 'This action cannot be undo.'}}</span></h1>
+        </header>
+      <footer>
+         <button class="btn btn-primary" type="button" ng-click="ok()">
+         <img src="../../assets/images/reload.gif" class="publishLoader" ng-show="loader"/>
+         Delete</button>
+         <button class="btn btn-warning" type="button" ng-click="close()" >Cancel</button>        
+      </footer> 
+   </div>
+  
+  
+</script>
