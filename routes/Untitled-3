@@ -1,0 +1,15 @@
+1) Show no. of month & days if patient age is less than 1 year https://prnt.sc/ihnvdl
+2) https://prnt.sc/ihnwo3 back button redirecting to IPD instead of OPD patient listing
+3) Add/Update Prescription Model Box:- Autocomplete dropdown overlapping Medicine text box  https://app.hyfy.io/v/abWOW7DW6qn/
+4) Show loader on submit form https://prnt.sc/ihnzf7
+5) Doctor can not send multiple request to submit specific patient to IPD section.
+6) Patient request:- On rejecting request instead of deleting current request last one request is getting deleted.https://app.hyfy.io/v/ab9XzrAr6qn/
+
+7) https://prnt.sc/ihob61
+8) https://prnt.sc/ihobrq
+9) Submit patient to IPD using patient refrence https://prnt.sc/ihocmf
+10) Pharmacy:- Cost per unit should be less than MRP price. https://prnt.sc/ihogas
+11) IPD Patients /Allotted Beds / Patient Details:- Add prescription https://prnt.sc/ihoiyo
+12) IPD doctor visit eror: https://prnt.sc/ihp45p
+13) Return button should be disable if total amount is zero https://prnt.sc/ihp75l
+14) 

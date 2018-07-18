@@ -1,0 +1,82 @@
+<div class="login-background">
+    <header>
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
+                    <a ui-sref="index">
+                        <img src="../../../assets/images/logo.png" alt="">
+                    </a>
+                </div>
+                <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4 col-lg-offset-2">
+                    <nav class="navbar navbar-default" role="navigation">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand" href="#"></a>
+                        <div class="navbar-collapse collapse">
+                            <ul class="nav navbar-nav navbar-left dropdown-masked"  style="margin:7.5px 0px">
+                                <li>
+                                    <a href="#">Contact</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </nav>
+                </div>
+
+                <!--      <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 text-right visible-lg visible-md-block visible-sm"> 
+        <a href="" class="btn mybtn btn-transparent">Login</a>
+        <a href="" class="btn mybtn btn-white">Signup</a>
+        </div> -->
+            </div>
+        </div>
+
+    </header>
+
+    <section class="login_banner banner">
+        <!--<img src="../../assets/images/login.jpg" class="img-responsive" alt="">-->
+        <div class="container">
+            <div class="col-xs-12 col-sm-12 col-md-12 no_padd">
+                <div class="log_cnt">
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-12 col-md-5">
+                            <div class="left">
+                                <h3>Are you ready to take your team into the Champions league of fan engagement?</h3>
+                                <ul>
+                                    <li>
+                                        <span>
+                                            <img src="../../../assets/images/tick.png" class="img-responsive" alt="">
+                                        </span>One platform, one solution</li>
+                                    <li>
+                                        <span>
+                                            <img src="../../../assets/images/tick.png" class="img-responsive" alt="">
+                                        </span>A simple way to aggregate your social content</li>
+                                    <li>
+                                        <span>
+                                            <img src="../../../assets/images/tick.png" class="img-responsive" alt="">
+                                        </span>And engage your social audience</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-7">
+                            <ui-view></ui-view>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+<script type="text/ng-template" id="custom_template.html">
+    <div class="ui-notification custom-template">
+        <div class="message" ng-bind-html="message"></div>
+        <div class="message">
+            <ul>
+                <span ng-repeat="error in errors">
+                    <li ng-repeat="err in error">{{err}}</li>
+                </span>
+            </ul>
+        </div>
+    </div>
+</script>

@@ -1,0 +1,901 @@
+@charset "utf-8";
+/* CSS Document */
+@media only screen and (max-width:1366px){
+	.create_new {
+height: 210px;
+min-height:210px;
+}
+
+}
+@media only screen and (max-width:1330px){
+	.box{margin-left: 0%; width: auto;}
+}
+
+@media only screen and (max-width:1199px){
+	.started .dash{width: 79%;}
+	.video_play .right .video{width: 100%;}
+	.video_play .left h1{font-size: 27px;}
+	.video_play .left .text{font-size: 16px; margin-top: 0;}
+	.video_play .left p{margin-top: 20px; width: 94%;}
+	.box a{padding: 12px 10px !important}
+	.box{width: auto;}
+	.lift{height:auto !important; margin-top: 0px !important;}
+	.how_works{padding-bottom:0px}
+	.paas{width: 59%; height: 189%; float: right; overflow-y: hidden;}
+	.tab_texual{height: 225px;}	
+	.onno .offline .prio p{width: auto;}
+	
+}
+
+@media only screen and (max-width:1024px){
+	
+	.started .dash h1{margin-right: 28px; font-size: 30px; margin-top: 10px;}
+	footer p{margin-bottom: 10px; width: 100%;}
+	.started .dash .create, .started .dash .plans{margin-top: 10px;}
+	.dur{width: 52%;}
+	.how_works p{padding-right: 0;}
+	.paas{width: 47%; height: 100%; top: -46px;}
+	footer .soc{margin-bottom: 40px;}
+	
+	.log_cnt .right .custom_form .select-style{width:99%; margin-bottom: 10px; background: #fff6 url(../images/caret_down.png) no-repeat 96% 50%;}
+	.log_cnt .left{width: 84%;}
+	.login_banner{min-height: 580px; background-position-y: 0;}
+		.dream{
+width:100%;	
+}
+
+.create_new {
+height: 210px;
+min-height:210px;
+}
+.mausam {
+	padding:0 15px;
+}
+.mausam >div{
+	padding:0;
+}
+.tera{
+height:100%;	
+min-height:100%;	
+}
+.tera img{
+height:100%;	
+}
+#list .dream .bott{
+top:20px;	
+}
+
+
+}
+
+@media only screen and (max-width:991px){
+	.maxl {
+    margin: 5px 0 0;
+}
+.log_dash a.noaccount-link  {
+    text-align: center;
+    position: absolute;
+    top: 42px;
+}
+	.started .dash{width: 94%;}
+	.banner{height: 622px;}
+	header .navbar-right{width: 73%;}
+	.left_menu{width: 63%;}
+	.right_menu{width: 35%;}
+	header .left_menu li, header .right_menu li{padding: 10px 7px 0 7px;}
+	.note{margin-bottom: 30px;}
+	.how_works h1{margin-left: 17%; text-align: left; width: auto;}
+	.how_works{height: auto; max-height: 638px; min-height: 622px;}
+	
+	.login_banner{min-height: 580px; background-position-y: 0;}
+	.log_cnt .left, .log_cnt .right{width: 100%;}
+	.log_cnt .left ul{margin: 0 auto; width: 100%; float: none;}
+	.log_cnt .right h3{text-align:left}
+	
+}
+
+@media only screen and (max-width:875px){
+	
+	.banner_content{width: 71%;}
+	.tab_texual{height: auto;}
+	.compact{width: 100%;}
+	.started .dash h1{font-size: 28px; width:100%; text-align: center;}
+	.started .dash .create, .started .dash .plans{width: 48%; float: left; display: inline-block; text-align: center; margin-top: 10px;}
+	.video_play .left p{width: 100%;}
+	
+	.how_works .ipad{top: -56px;}
+	
+	.dream{
+width:100%;	
+}
+.mausam {
+	padding:0 15px;
+}
+.mausam >div{
+	padding:0;
+}
+.tera{
+height:100%;	
+min-height:100%;	
+}
+.tera img{
+height:100%;	
+}
+#list .dream .bott{
+top:20px;	
+}
+
+.hone{
+height:100%	
+}
+
+.create_new {
+height: 100%;
+min-height:100%;
+}
+
+}
+@media only screen and (max-width:732px){
+	.create_new {
+height: 100% !important;
+min-height:100% !important;
+}
+
+}
+@media only screen and (max-width:768px){
+	.dek {
+   text-align: center;
+}
+	.log_cnt .right{width: 100%; float: none; margin: 0 auto;} 
+	.log_cnt .right .custom_form .form-control{width:100%; margin-bottom:15px; margin-right:0px}
+	.log_cnt .right .custom_form{margin-bottom:0px !important}
+	.log_cnt .left h3{margin: 20px auto; width: 100%; text-align: left;}
+	
+.dream{
+width:100%;	
+}
+.mausam {
+	padding:0 15px;
+}
+.mausam >div{
+	padding:0;
+}
+
+.create_new {
+/*height:400px;
+min-height:280px;*/
+}
+
+.tera{
+/*height:280px;*/	
+min-height:100%;	
+}
+.tera img{
+height:100%;	
+}
+#list .dream .bott{
+top:280px;	
+}
+.prgrss_bar .circle span{
+left:0	
+}
+}
+
+@media only screen and (max-width:680px){
+	.paas{width: 45%; top: 0px;}
+	.started .dash h1{width: 100%; text-align: center;}
+	.banner_content{width: 80%;}
+	.dur{width: 95%;}
+	.paas{width:100%;}
+	.banner_content{width: 100%; left: 0;}
+	.banner_content{top: -255px;}
+	.banner img{height:auto}
+
+	.how_works{min-height: 719px; max-height: 664px; height: auto;}
+	.banner_content h1{font-size: 40px;}
+	.banner_content h4{margin-bottom: 19px; font-size: 19px; margin-top: 0px;}
+	.banner{height:auto}
+	.how_works .ipad{top: -44px; position: relative;}
+	.how_works .ipad img{width: 80%; right: -191px;}
+	.video_play h1{font-size: 24px;}
+	.do_you h3{font-size: 28px;}
+	footer{text-align:center}
+	.batch ul li, .batch ul li a{text-align: center; width:100%; float:left}
+	footer .soc{margin-left: 42%; width: auto;}
+	header .navbar-default{padding-top:0px}
+	.banner_content{top: -256px;}
+	.banner img{height: 100%;}
+	
+	header .navbar-right{width:100%;}
+	header .navbar-default .navbar-collapse{background: #7e83831a;}
+	header .left_menu li, header .right_menu li, .right_menu{width: 100%;}
+	.right_menu{margin-bottom: 7px;}
+	
+	
+	.rota .navbar-default .navbar-collapse {
+    background: #232323 none repeat scroll 0 0;
+}
+.rota .navbar-default .navbar-collapse {
+    background: #000 none repeat scroll 0 0;
+    margin-bottom: 20px;
+    margin-top: 10px;
+    padding-bottom: 0;
+    padding-top: 0;
+}
+.create_new {
+height: 100%;
+min-height:100%;
+}
+
+	.dream{
+width:100%;	
+}
+.mausam {
+	padding:0 15px;
+}
+.mausam >div{
+	padding:0;
+}
+.tera{
+height:100%;	
+min-height:100%;	
+}
+.tera img{
+height:100%;	
+}
+	
+#list .dream .bott{
+top:225px;	
+}	
+	
+	
+	.login_banner{min-height:580px }
+	.log_cnt .left h3{margin: 20px auto; width: 90%; text-align: left;}
+	.log_cnt .left ul{width: 84%;}
+	.log_cnt .right{width: 90%;}
+}
+
+@media only screen and (max-width:480px){
+	.banner img{height: 100%;}
+	.started .dash .create, .started .dash .plans{width: 100%; margin-left: 0;}
+	.cont{width: 97%; margin-left: 2%;}
+	.box a{padding: 12px 6px !important;}
+	.how_works .texual, .how_works p{font-size: 17px;}
+	.banner{height: 331px;}
+	.onno .offline .prio i{margin-right: 15px;}
+	.how_works .ipad{display:none}
+	.onno .offline .prio p{width:auto}
+	
+	.login_banner{min-height:680px}
+	.log_cnt .left h3{width:100%}
+	.log_cnt .left ul{width: 92%;}
+	.log_cnt .right{width: 100%; padding-right: 15px; float: left;}
+.dream{
+width:100%;	
+}
+.mausam {
+	padding:0 15px;
+}
+.mausam >div{
+	padding:0;
+}
+.tera{
+height:100%;	
+min-height:100%;	
+}
+.tera img{
+height:100%;	
+}
+#list .dream .bott{
+top:20px;	
+}
+}
+
+
+
+
+@media only screen and (max-width:360px){
+	.box.nav-tabs > li > a{font-size: 12px;}
+	.box > li::after{height: 25px;}
+	.how_works h1{font-size: 28px;}
+	.how_works .texual, .how_works p{font-size: 15px;}
+	.how_works h1{margin-left: 11%;}
+	.how_works .contex .onno{margin: 40px 0;}
+	
+	.log_cnt h3{font-size: 20px;}
+	.log_cnt .left ul{width: 100%;}
+	.log_cnt .left ul li span{padding-right: 6px;}
+	.log_cnt .left ul li{font-size: 15px;}
+	.thakkad{width: 100%; margin-right: 0;}
+	
+	.hit {
+    left: -5px;
+	
+	}
+	
+	.box .drag_text {
+    line-height: 24px!important;
+    text-align: center;
+	padding-top:25px!important;
+	
+	
+}
+
+
+.event_banner h1 {
+	font-size: 21px;
+}
+
+
+.dek{
+text-align:center;	
+}
+
+
+.rota ul li a {
+    display: block;
+    float: left;
+    margin: 0;
+    padding: 15px 15px 15px 0px;
+   /* width: 5%;*/
+    float: left;
+    text-align: center;
+    display: inline;
+}
+
+
+	.grid_h3 {
+	font-size: 25px;
+	    width: 75%;
+		
+			
+	}
+	
+	
+.drp {
+    background: #292929 none repeat scroll 0 0;
+    left: 56%!important;
+    padding: 8px 16px;
+    right: 2%;
+    top: 53%;
+    transition: all 0.2s linear 0s;
+}
+
+.sort {
+width:100%;	
+}
+
+.adda {
+ padding: 8px 13px!important;	
+}
+
+.moo_btn {
+	padding: 8px 11px!important;
+	
+}
+
+.bg, .no-padding{
+padding:15px 0 !important;	
+}
+.plak{
+border-radius:0	
+}
+
+.free1{
+margin-top:220px;	
+}
+
+
+.create_new .dream h3 {
+	
+	font-size: 25px;
+	    width: 75%;
+}
+
+
+
+
+}
+
+
+
+<!-- iPhone 6 -->
+@media only screen  and (min-device-width : 375px) and (max-device-width : 667px) and (orientation : landscape) { 
+.bg, .no-padding{
+	padding:15px 0 !important;	
+}
+.plak{
+border-radius:0	
+}
+.log_cnt .left ul li{font-size: 15px;}
+
+/*#thumbnail .dream .bott {
+	width: 100%;
+	float: left;
+	position: relative;
+	top: 0px
+}*/
+#list .dream .bott {
+	width: 100%;
+	float: left;
+	position: relative; /*top: 164px;*/
+	top: 220px
+}
+.dek p {
+	text-align: center;
+}
+
+.hone { height:100%; min-height: 210px;}
+.create_new .dream .bott {
+	width: 85%;
+	float: inherit;
+	position:absolute;
+	bottom:15px;
+}
+.create_new .dream .sott {
+	width: 85%;
+	float: inherit;
+	position:absolute;
+	bottom:15px;
+}
+
+
+.right.pop .dropdown-menu {
+	top: -86px !important;
+	left: 180px !important;
+	width: 100px;
+    min-width: 120px;
+}
+
+
+
+
+}
+
+@media only screen and (min-device-width : 375px) and (max-device-width : 667px) and (orientation : portrait) {
+.bg, .no-padding{
+padding:15px 0 !important;	
+}
+.plak,.fame{
+border-radius:0	
+}
+.log_cnt .left ul li{font-size: 15px;}
+
+/*#thumbnail .dream .bott {
+	width: 100%;
+	float: left;
+	position: relative; 
+	top: 0px
+}*/
+#list .dream .bott {
+	width: 100%;
+	float: left;
+	position: relative; /*top: 164px;*/
+	top: 220px
+}
+.hone { height:100%; min-height: 210px;}
+.create_new .dream .bott {
+	width: 85%;
+	float: inherit;
+	position:absolute;
+	bottom:15px;
+}
+.create_new .dream .sott {
+	width: 85%;
+	float: inherit;
+	position:absolute;
+	bottom:15px;
+}
+
+
+
+.dream{
+width:100%;	
+}
+.mausam {
+	padding:0 15px;
+}
+.mausam >div{
+	padding:0;
+}
+/*.tera{
+height:280px;	
+min-height:100%;	
+}*/
+.tera img{
+height:100%;	
+}
+#list .dream .bott{
+top:280px;	
+}
+
+}
+<!-- iPhone 6 -->
+
+<!-- iPhone 6 plus-->
+@media only screen and (min-device-width : 414px) and (max-device-width : 736px) {
+.bg, .no-padding{
+padding:15px 0 !important;	
+}
+.plak,.fame{
+border-radius:0	
+}
+.log_cnt .left ul li{font-size: 15px;}
+
+#thumbnail .dream .bott {
+	width: 100%;
+	float: left;
+	position: relative; /*top: 164px;*/
+	top: 0px
+}
+#list .dream .bott {
+	width: 100%;
+	float: left;
+	position: relative; /*top: 164px;*/
+	top: 220px
+}
+
+.hone { height:100%; min-height: 210px;}
+.create_new .dream .bott {
+	width: 85%;
+	float: inherit;
+	position:absolute;
+	bottom:15px;
+}
+.create_new .dream .sott {
+	width: 85%;
+	float: inherit;
+	position:absolute;
+	bottom:15px;
+}
+
+.right.pop .dropdown-menu {
+	top: -86px !important;
+	left: 180px !important;
+	width: 100px;
+    min-width: 120px;
+}
+
+}
+@media only screen 
+and (min-device-width : 414px) 
+and (max-device-width : 736px) 
+and (orientation : landscape) {
+.bg, .no-padding{
+	padding:15px 0 !important;		
+}
+.plak,.fame{
+border-radius:0	
+}
+.log_cnt .left ul li{font-size: 15px;}
+
+#thumbnail .dream .bott {
+	width: 100%;
+	float: left;
+	position: relative; top: 164px;
+	
+}
+#list .dream .bott {
+	width: 100%;
+	float: left;
+	position: relative; /*top: 164px;*/
+}
+.hone { height:100%; min-height: 210px;}
+.create_new .dream .bott {
+	width: 85%;
+	float: inherit;
+	position:absolute;
+	bottom:15px;
+}
+.create_new .dream .sott {
+	width: 85%;
+	float: inherit;
+	position:absolute;
+	bottom:15px;
+}
+
+.right.pop .dropdown-menu {
+top: -85px !important;
+}
+
+}
+<!-- iPhone 6 plus-->
+
+<!-- Ipad -->
+@media only screen 
+and (min-device-width : 768px) 
+and (max-device-width : 1024px)
+and (-webkit-min-device-pixel-ratio: 1)  {
+
+
+
+}
+
+@media only screen 
+and (min-width : 768px) 
+and (max-width : 1024px) { 
+.list_type {
+padding-left:10px!important;	
+}
+
+.right.pop .dropdown-menu {
+
+    left: 69px !important;
+	width: 105px;
+}
+
+.create_new .dream h3 {
+font-size: 20px;	
+}
+
+	.bg{
+/*! padding: 39px 20px !important; */	
+}
+
+.drp{
+    left: 81%;
+	top:60%
+}
+.blk{
+	margin-top:9%;
+}
+}
+
+@media only screen 
+and (min-device-width : 768px) 
+and (max-device-width : 1024px) 
+and (orientation : portrait) {
+
+.list_type {
+padding-left:10px;	
+}
+
+	.bg {
+/*! padding:5% 20px 15%!important; */	
+}
+
+.blk{
+	margin-top: 24%;
+}
+	.right.pop .dropdown-menu {
+    top: -86px !important;
+    left: 162px !important;
+}
+.drp{
+	width: 120px;
+    left: 203px;
+	top: 63%;
+}
+}
+
+ .log_form .form-control{
+margin-bottom: 10px!important;	
+}
+
+
+/*.dream {
+transition: inherit!important;	
+}
+*/
+
+
+
+@media only screen 
+and (min-device-width : 1024px) 
+and (max-device-width : 1366px) 
+ {
+
+}
+<!-- Ipad -->
+
+
+
+/*
+@media only screen and (min-width:480px){
+.dream {
+width: 92.5%;
+}
+}
+@media only screen and (min-width:360px){
+.dream {
+	width: 91.5%;
+}
+}
+@media only screen and (min-width:412px){
+.dream {
+	width: 92.5%;
+}
+}*/
+
+
+
+@media only screen and (min-width: 480px) and (max-width: 767px) {
+    
+}
+
+
+
+
+/* Galaxy S5 landscape */
+@media screen 
+  and (device-width: 360px) 
+  and (device-height: 640px) 
+  and (-webkit-device-pixel-ratio: 3) 
+and (orientation: landscape) {
+	  
+	  .tera {
+
+    height: 280px!important;
+}
+
+}
+
+
+
+
+/*@media only screen 
+and (min-device-width : 640px) 
+and (max-device-width : 3604px)
+and (orientation:landscape) {
+    .col-xsl-6{ width: 50%; float:left!important }
+	
+	.create_new .green {
+  
+    height: 282px!important;
+}
+
+.create_new .green .hov_green {
+	margin-top: 29%!important;
+}
+}
+
+@media only screen and (min-width: 640px) and (orientation:portrait) {
+.col-md-3 {
+    width: 25%!important;
+}
+}
+*/
+
+@media  (max-width: 414px)  and (orientation:landscape) {
+	.bg, .no-padding{
+	padding:15px 0 !important;	
+	}
+	
+}
+
+
+@media (max-width: 568px) and (orientation:landscape) {
+	.bg, .no-padding{
+	padding:15px 0 !important;	
+	}
+	
+
+	
+}
+
+@media  (max-width: 414px) and (orientation:portrait) {
+	
+
+
+	
+}
+
+
+@media  (max-width: 736px) and (orientation:portrait) {
+
+	
+}
+
+
+
+
+@media  (min-width: 768px) and (orientation:portrait) {
+  	#thumbnail .col-xsl-6 {			
+			height: 280px !important;
+    margin-bottom: 20px;
+			}
+}
+
+@media  (min-width: 768px) and (orientation:landscape) {
+			.list_type {
+    padding-left:20px!important;
+}
+
+
+.right.pop .dropdown-menu {
+	top: inherit;
+    left: 70px;
+    bottom: 30px;
+}
+
+}
+
+
+@media  (max-width: 736px) and (orientation:landscape) {
+   .mausam .col-xsl-6{
+		width:50%!important;
+	}
+	.list_type{
+	padding:0 10px;	
+	}
+	
+	  #thumbnail .col-xsl-6{
+		width:50%;
+		height: 260px;
+    margin-bottom: 20px !important;
+			}
+			
+			.create_new .play a.green{
+			
+			min-height:245px;
+			height:100%;
+			}
+			
+	
+	
+			
+	header .open .dropdown-toggle[aria-expanded="true"]:before{
+	content: "\f0d8";
+    display: inline-block;
+    position: absolute;
+    top: 37px;
+    width: 10px;
+    height: 10px;
+    color: #3c4246;
+    font-family: FontAwesome;
+    right:46%;
+    font-size: 40px;
+}		
+
+
+
+
+}
+
+@media  (max-width: 768px) and (orientation:portrait) {
+   .mausam .col-xsl-6{
+		width:50%!important;
+	}
+.list_type{
+	padding:0 0px;	
+	}
+	
+	
+	
+}
+
+@media  (max-width: 414px) and (orientation:portrait) {
+   .mausam .col-xsl-6{
+		width:100%!important;
+	}
+header .open .dropdown-toggle[aria-expanded="true"]:before{
+	content: "\f0d8";
+    display: inline-block;
+    position: absolute;
+    top: 37px;
+    width: 10px;
+    height: 10px;
+    color: #3c4246;
+    font-family: FontAwesome;
+    right:43.5%;
+    font-size: 40px;
+}
+
+
+
+
+}
+
+
+
+
+
+@media only screen and (max-width:320px){
+		.rota .navbar-brand {
+		    padding: 22px 8px;
+		}
+		.dek p { width: auto; }
+		.drpdwwee {
+			margin-bottom: 10px;
+		}
+}

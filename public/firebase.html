@@ -1,0 +1,22 @@
+<script src="https://www.gstatic.com/firebasejs/5.0.1/firebase.js"></script>
+<script>
+  // Initialize Firebase
+  // TODO: Replace with your project's customized code snippet
+  var config = {
+    apiKey: "AIzaSyDZfoLk9uGpGbnvQs-FpAPFr3ce56d1FWM",
+    authDomain: "rh-firebase-test.firebaseapp.com",
+    databaseURL: "https://rh-firebase-test.firebaseio.com",
+    projectId: "rh-firebase-test",
+    storageBucket: "rh-firebase-test.appspot.com",
+    messagingSenderId: "581197900237",
+  };
+  firebase.initializeApp(config);
+
+  var ref = firebase.database().ref('v1/items/49693');
+    console.log(ref);
+    ref.on("value", function(snapshot) {
+    console.log(snapshot.val());
+    }, function (error) {
+    console.log("Error: " + error.code);
+    });
+</script>

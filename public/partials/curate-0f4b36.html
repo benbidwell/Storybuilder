@@ -1,0 +1,565 @@
+<style>
+
+    input::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+ color: rgb(128, 128, 128) !important;
+}
+input::-moz-placeholder { /* Firefox 19+ */
+ color: rgb(128, 128, 128) !important;;
+}
+input::-ms-input-placeholder { /* IE 10+ */
+ color: rgb(128, 128, 128) !important;;
+}
+input::-moz-placeholder { /* Firefox 18- */
+ color: rgb(128, 128, 128) !important;;
+}
+</style>
+<div class="loading-overlay" ng-show="loader">
+    <img class="overlay-loader"  src="./imgs/reload-c0a215.gif">
+</div>
+<div class="event_banner curate_banner">
+    <h1>{{newStory.story_title}} </h1>
+    <img src="./imgs/curate-b29494.png" class="img-responsive" alt="">
+</div>
+<div class="curate_cnt" >
+    <div class="col-xs-12 col-sm-4 col-md-3 sideBAr no_padd sideSmthing">
+        <div class="visible-xs toggleforMenuDiv">
+            <span class="toggleforMenu "></span>
+        </div>
+        <div  id="menuSecD"  class=" no_padd menuSecD ">
+            <div class="sidebar">
+                <div class="col-xs-12 col-sm-12 col-md-12 no_padd">
+                    <button class="accordion active">Social channels
+                    <span ng-if="(facebook.length+twitter.length+gplus.length+instagram.length)>0">
+                    ({{facebook.length+twitter.length+gplus.length+instagram.length}})</span>
+                    </button>
+                    <div class="panel passkb" style="max-height:151px;">
+                        <div class="sori">
+
+                            <div class="click" ng-repeat="item in facebook track by $index">
+                                <div class="customs">
+                                    <div class="control-group" style="width:92%">
+                                        <label class="control control--checkbox">Facebook (<span class="color-red">{{item.screen_name}}</span>)
+                                            <input type="checkbox" ng-model="filter.filterCheck[item.user_id]"
+                                            ng-click="filterImage(item.user_id,filter.filterCheck[item.user_id])" />
+                                            <div class="control__indicator">
+                                            </div>
+                                        </label>
+                                    </div>
+                                    <a ng-click="deleteAccount('Facebook',item.user_id)">
+                                        <i class="fa fa-times pull-right greyColor" aria-hidden="true" title="Delete Account"></i>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="click" ng-repeat="item in twitter track by $index">
+                                <div class="customs">
+                                    <div class="control-group" style="width:92%">
+                                        <label class="control control--checkbox">Twitter ({{item.screen_name}})
+                                            <input type="checkbox" ng-model="filter.filterCheck[item.user_id]"
+                                            ng-click="filterImage(item.user_id,filter.filterCheck[item.user_id])" />
+                                            <div class="control__indicator"></div>
+                                        </label>
+                                    </div>
+                                    <a ng-click="deleteAccount('Twitter',item.user_id)">
+                                        <i class="fa fa-times pull-right greyColor" aria-hidden="true" title="Delete Account"></i>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="click" ng-repeat="item in gplus track by $index">
+                                <div class="customs">
+                                    <div class="control-group" style="width:92%">
+                                        <label class="control control--checkbox">Google+ ({{item.screen_name}})
+                                            <input type="checkbox" ng-model="filter.filterCheck[item.user_id]"
+                                            ng-click="filterImage(item.user_id,filter.filterCheck[item.user_id])" />
+                                            <div class="control__indicator"></div>
+                                        </label>
+                                    </div>
+                                    <a ng-click="deleteAccount('Google',item.user_id)">
+                                        <i class="fa fa-times pull-right greyColor" aria-hidden="true" title="Delete Account"></i>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="click" ng-repeat="item in instagram track by $index">
+                                <div class="customs">
+                                    <div class="control-group" style="width:92%">
+                                        <label class="control control--checkbox">Instagram ({{item.screen_name}})
+                                            <input type="checkbox" ng-model="filter.filterCheck[item.user_id]"
+                                            ng-click="filterImage(item.user_id,filter.filterCheck[item.user_id])" />
+                                            <div class="control__indicator"></div>
+                                        </label>
+                                    </div>
+                                    <a ng-click="deleteAccount('Instagram',item.user_id)">
+                                        <i class="fa fa-times pull-right greyColor" aria-hidden="true" title="Delete Account"></i>
+                                    </a>
+                                </div>
+                            </div>
+
+                            <div class="click">
+                                <div class="customs">
+                                    <div class="control-group">
+                                        <a id="DropDownS"><span><i class="fa fa-plus-square-o" aria-hidden="true"></i></span>Add Channel</a>
+
+                                    </div>
+                                </div>
+                                <ul id="DopList" class="Addchannlist">
+                                    <li>
+                                        <ul id="selchnl"  >
+                                            <li class="scilchhnl" id="divp11" ng-click="Cnnlsclc('Facebook')">Facebook</li>
+                                            <li class="scilchhnl"  id="divp12" ng-click="Cnnlsclc('Twitter')">Twitter </li>
+                                            <li class="scilchhnl"  id="divp13" ng-click="Cnnlsclc('Google')">Google</li>
+                                            <li class="scilchhnl"  id="divp14" ng-click="Cnnlsclc('Instagram')">Instagram </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div>
+
+
+                        </div>
+                    </div>
+
+                    <button class="accordion">cloud storage
+                    <span ng-if="(gdrive.length+dropbox.length)>0">({{gdrive.length+dropbox.length}})</span>
+                    </button>
+                    <div id="pannL" class="panel ">
+                        <div class="sori">
+                            <div class="click" ng-repeat="item in gdrive track by $index">
+                                <div class="customs">
+                                    <div class="control-group" style="width:92%">
+                                        <label class="control control--checkbox">Google Drive ({{item.screen_name}})
+                                            <input type="checkbox" ng-model="filter.filterCheck[item.user_id]"
+                                            ng-click="filterImage(item.user_id,filter.filterCheck[item.user_id])" />
+                                            <div class="control__indicator"></div>
+                                        </label>
+                                    </div>
+                                     <a ng-click="deleteAccount('Google Drive',item.user_id)">
+                                        <i class="fa fa-times pull-right greyColor" aria-hidden="true" title="Delete Account"></i>
+                                    </a>
+                                </div>
+                            </div>
+
+                            <div class="click" ng-repeat="item in dropbox track by $index">
+                                <div class="customs">
+                                    <div class="control-group" style="width:92%">
+                                        <label class="control control--checkbox">Dropbox  ({{item.screen_name}})
+                                            <input type="checkbox" ng-model="filter.filterCheck[item.user_id]"
+                                            ng-click="filterImage(item.user_id,filter.filterCheck[item.user_id])" />
+                                            <div class="control__indicator"></div>
+                                        </label>
+                                    </div>
+                                     <a ng-click="deleteAccount('Dropbox',item.user_id)">
+                                        <i class="fa fa-times pull-right greyColor" aria-hidden="true" title="Delete Account"></i>
+                                    </a>
+                                </div>
+                            </div>
+
+                            <div class="click">
+                                <div class="customs">
+                                    <div class="control-group">
+                                        <a id="DropDownSVed"><span><i class="fa fa-plus-square-o" aria-hidden="true"></i></span>Add Cloud</a>
+
+                                    </div>
+                                </div>
+                                <ul id="DopListVedio" class="Addchannlist" style="    max-height: 50px;">
+                                    <li>
+                                        <ul >
+                                            <li class="cldstorageoption" id="" ng-click="claudStrg('Google Drive')"  value="">Google Drive</li>
+                                            <li class="cldstorageoption" id="div6111" ng-click="claudStrg('Dropbox')"  value="">Dropbox</li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div>
+
+
+                        </div>
+                    </div>
+
+                    <button class="accordion">upload files</button>
+                    <div class="panel">
+                        <div class="sori">
+                            <div ng-if="local_present.image" >
+                                <div class="click">
+                                <div class="customs">
+                                    <div class="control-group" >
+                                        <label class="control control--checkbox"> Uploaded Image
+                                            <input type="checkbox" ng-model="select_media_type.image" ng-change="media_check('image', select_media_type)" />
+                                            <div class="control__indicator"></div>
+                                        </label>
+                                    </div>
+                                </div>
+                                </div>
+                            </div>
+                            <div  ng-if="local_present.video" >
+                                <div class="click">
+                                <div class="customs">
+                                    <div class="control-group">
+                                        <label class="control control--checkbox"> Uploaded Video
+                                            <input type="checkbox" ng-model="select_media_type.video"  ng-change="media_check('video',select_media_type)" />
+                                            <div class="control__indicator"></div>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            </div>
+
+                            <div class="click">
+                                <div class="customs">
+                                    <div class="control-group">
+                                        <a class="" ng-click="local_media()">
+                                        <span><i class="fa fa-plus-square-o" aria-hidden="true"></i></span>Add Media </a>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div class="col-xs-12 col-sm-8 col-md-9 sideBArright no_padd">
+        <div class="whiteup">
+            <!---social channels-->
+            <div class="vid_yu" id="" ng-if="show_social">
+                <h5>Curate your {{social_type | lowercase }} channels</h5>
+                <div ng-show="social_type=='Facebook'">
+                    <div class="strip" ng-repeat="account in facebook track by $index">
+                        <div id="this">
+                            <div class="lane">
+                                <label>Account</label>
+                                <input type="text" class="form-control" readonly value="{{account.screen_name}}">
+
+                                <!-- <button class="btn_curate">
+                                <i class="fa fa-check" aria-hidden="true"></i>
+                                </button> -->
+                            </div>
+                            <div class="cross">
+                                <a ng-click="deleteAccount(social_type,account.user_id)"><i class="fa fa-times" aria-hidden="true" title="Delete Account"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div ng-show="social_type=='Instagram'">
+                    <div class="strip" ng-repeat="account in instagram track by $index">
+                        <div id="this">
+                            <div class="lane">
+                                <label>Account</label>
+                                <input type="text" class="form-control" readonly value="{{account.screen_name}}">
+
+                                <!-- <button class="btn_curate">
+                                <i class="fa fa-check" aria-hidden="true"></i>
+                                </button> -->
+                            </div>
+                            <div class="cross">
+                                <a ng-click="deleteAccount(social_type,account.user_id)"><i class="fa fa-times" aria-hidden="true" title="Delete Account"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div ng-show="social_type=='Twitter'">
+                    <div class="strip" ng-repeat="account in twitter track by $index">
+                        <div id="this">
+                            <div class="lane">
+                                <label>{{account.channel_type}}</label>
+                                <input type="text" class="form-control" readonly value="{{account.screen_name}}">
+
+                                <!-- <button class="btn_curate">
+                                <i class="fa fa-check" aria-hidden="true"></i>
+                                </button> -->
+                            </div>
+                            <div class="cross">
+                                <a ng-click="deleteAccount(social_type,account.user_id)"><i class="fa fa-times" aria-hidden="true" title="Delete Account"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div ng-show="social_type=='Google'">
+                    <div class="strip" ng-repeat="account in gplus track by $index">
+                        <div id="this">
+                            <div class="lane">
+                                <label>{{account.channel_type}}</label>
+                                <input type="text" class="form-control" readonly value="{{account.screen_name}}">
+
+                                <!-- <button class="btn_curate">
+                                <i class="fa fa-check" aria-hidden="true"></i>
+                                </button> -->
+                            </div>
+                            <div class="cross">
+                                <a ng-click="deleteAccount(social_type,account.user_id)"><i class="fa fa-times" aria-hidden="true" title="Delete Account"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="f">
+                    <div class="strip">
+                        <div id="this">
+                            <div class="lane">
+                                <form ng-submit="login(social_type,newAccount.value)">
+                                <label>Account</label>
+                                <!-- <input type="text" class="form-control" ng-model="newAccount.value"  placeholder="Account Name" > -->
+                                <input type="submit"   class="btn_curate" value="AUTHORISE &amp; ADD">
+
+                                </form>
+                            </div>
+                            <div class="cross" id="del">
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="f1" >
+                    <div class="strip">
+                        <form ng-submit="searchHashtag(social_type,hashtag.value)">
+                        <div id="this1">
+                            <div class="lane">
+                                <label>Hashtag</label>
+
+
+                                    <input ng-model="hashtag.value" class="form-control"  type="text" placeholder="#Hashtag" required pattern="#[A-Za-z0-9_]*">
+                                    <button class="btn_curate" type="submit">
+                                    <i class="fa fa-check" aria-hidden="true"></i>
+                                    </button>
+
+
+                            </div>
+                            <div class="cross" id="del1">
+
+                            </div>
+                        </div>
+                        </form>
+                    </div>
+                </div>
+
+                <div id="f2" ng-if="social_type != 'Facebook' && social_type != 'Instagram'" >
+                    <div class="strip">
+                        <form ng-submit="searchKeyword(social_type,keyword.value)">
+                        <div id="this2">
+                            <div class="lane">
+                                <label>Keyword</label>
+                                <input type="text" class="form-control" ng-model="keyword.value" placeholder="Keyword" required="">
+                                <button class="btn_curate" type="submit">
+                                <i class="fa fa-check" aria-hidden="true"></i>
+                                </button>
+                            </div>
+                            <div class="cross" id="del2">
+                            </div>
+                        </div>
+                        </form>
+                    </div>
+                </div>
+
+
+               <!--<div class="tickets">
+                    <div id="butt" class="led" style="cursor:pointer; margin-bottom: 25px;" onClick="f()"><i class="fa fa-plus" aria-hidden="true"></i> ACCOUNT </div>
+                    <div  ng-if="social_type != 'Facebook'" id="butt1" class="led" style="cursor:pointer; margin-bottom: 25px;" onClick="f1()"><i class="fa fa-plus" aria-hidden="true"></i> HASHTAG </div>
+                    <div id="butt2" class="led" style="cursor:pointer; margin-bottom: 25px;" onClick="f2()"><i class="fa fa-plus" aria-hidden="true"></i> KEYWORDS </div>
+                </div>-->
+            </div>
+
+
+
+
+            <!---cloud storage---->
+            <div class="vid_yu strip strip1" id="" ng-if="show_cloud">
+                <h5>Curate your {{cloud_type| lowercase}} storage</h5>
+                <div ng-repeat="account in gdrive" ng-show="cloud_type=='Google Drive'" >
+                    <div class="lane" style="margin-bottom :8px">
+                        <label>Account</label>
+                        <input type="text" class="form-control" value="{{account.screen_name}}" readonly="">
+                        <!-- <button class="btn_curate">
+                        <i class="fa fa-check" aria-hidden="true"></i>
+                        </button> -->
+
+                    </div>
+                    <div class="cross" id="delete2">
+                        <a href="javascript:void(0);" ng-click="deleteAccount(cloud_type,account.user_id)"><i class="fa fa-times" aria-hidden="true"></i></a>
+                    </div>
+                </div>
+                <div ng-repeat="account in dropbox" ng-show="cloud_type=='Dropbox'" >
+                    <div class="lane" style="margin-bottom: 8px">
+                        <label>Account</label>
+                        <input type="text" class="form-control" value="{{account.screen_name}}" readonly="">
+                        <!-- <button class="btn_curate">
+                        <i class="fa fa-check" aria-hidden="true"></i>
+                        </button> -->
+
+                    </div>
+                    <div class="cross" id="delete2">
+                        <a href="javascript:void(0);" ng-click="deleteAccount(cloud_type,account.user_id)"><i class="fa fa-times" aria-hidden="true"></i></a>
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+                <div id="sto2">
+                <form ng-submit="login(cloud_type,newAccount.value)">
+                    <div class="lane">
+                        <label>Account</label>
+                        <input type="text" ng-show="cloud_type=='Dropbox'" class="form-control" placeholder="Account" ng-model="newAccount.value" ng-required="(cloud_type=='Dropbox')?true:false" >
+                        <input type="submit"  class="btn_curate" value="AUTHORISE &amp; ADD" >
+
+                    </div>
+                    <div class="cross" id="delete2">
+                    </div>
+                </form>
+                </div>
+            </div>
+
+
+
+            <div class="vid_yu custom_upld1" id="" ng-if="show_local"> <!---upload files---->
+                <h5>Curate your local storage</h5>
+                <form action="/file-upload" class="" id="my-awesome-dropzone">
+                    <div ngf-drop="upload($files)" ng-hide="uploaded_picture.length != 0"   ngf-select="upload($files)"  class="dropzone dz-clickable"
+                        ngf-drag-over-class="'dragover'"  ngf-allow-dir="true" accept="image/*,video/*" ngf-multiple="true"
+                        ngf-pattern="'image/*,video/*'" ngf-max-size="8MB" name="event_picture" ng-model="event_picture" >
+                        <div class="dz-default dz-message">
+                        <span > Drop Image here or click to upload{{event_picture[0].$error}} </span> </div>
+                        <span class="errormessage" style="text-align: center;display:none; color:#f00">File size should be less than 8MB and file should be jpg, jpeg, png or mp4</span>
+                        </div>
+
+                    <div ng-show="uploaded_picture.length != 0" class="row dropzone dz-clickable">
+                        <span class="col-md-3" ng-repeat="file in uploaded_picture">
+                            <img style="width: 150px ; height: 100px"  ng-show="event_picture"  ngf-src="!file[0].$error && file[0]" ></img>
+                             <video width="140" height="100" controls  ng-show="event_picture"  ngf-src="!file[0].$error && file[0]" ></video>
+                            <uib-progressbar class="progress-striped active" max="100" animate="true" value="file[1]?file[1]:0" type="danger"><i>{{file[1]?file[1]:0}}% / 100</i></uib-progressbar>
+                        </span>
+                    </div>
+
+                    <span  class="text-center">
+
+                    </span>
+
+
+                    <div ngf-no-file-drop >File Drag/Drop is not supported for this browser</div>
+
+                </form>
+             <!--    <form action="/file-upload" class="dropzone" id="my-awesome-dropzone">
+                   	  <div class="fallback">
+                    	<input type="file" name="file" multiple />
+                      </div>
+                   </form> -->
+            </div>
+				 <div class="hipdiv"></div>
+               <div class="vid_yu">
+                  <h4> Preview </h4>
+
+               	 <div class="nu" style="text-align: center">
+                 	<span>On</span>
+                      <label class="switch">
+                        <input type="checkbox" id="swtch">
+                         <div class="slider round"></div>
+                      </label>
+                      <span>Off</span>
+                  </div>
+                   &nbsp;&nbsp;&nbsp;&nbsp;  
+                   <img src="./imgs/reload-c0a215.gif" ng-show="loading">
+                   <div id="gump">
+                      <div id="demo" class="bracket curateUlT">
+                        <section id="examples" slim-scroll height="230px">
+                          
+                           <!-- content -->
+
+                            <div id="content-1" class="content scrollmenu" >
+                          
+                                     <div  class="no_border localmedia" ng-repeat="item in media  | filter:{media_type: mediaType } track by $index">
+                                       
+                                        <span ng-if="item.media_type == 'image'">
+                                            <i class="imgIconFor fa fa-hdd-o Twter"></i>
+                                            <img ng-src="story_media/story_{{story_id}}/{{item.media_url}}" class="img-responsive" alt="" style="position: relative;">
+                                        </span>
+                                        <span ng-if="item.media_type == 'video'" class="video">
+                                            <i class="imgIconFor fa fa-hdd-o Twter"></i>
+                                            <video ng-src="story_media/story_{{story_id}}/{{item.media_url}}" class="img-responsive" alt=""></video>
+                                            <img src="./imgs/play-9c1a34.png" >
+                                        </span>
+                                    </div>
+                         
+                                    <div   class="no_border newStory" ng-repeat="item in newStory.media |searchFilter:filter.filterValue track by $index">
+
+                                        <span ng-if="item.media_type == 'photo'">
+                                            <i class="imgIconFor fa fa-twitter Twter" ng-show="item.type=='twitter'"></i>
+                                            <i class="imgIconFor fa fa-hdd-o " ng-show="item.type=='Uploaded'"></i>
+                                            <i class="imgIconFor fa fa-google google" ng-show="item.type=='gdrive'"></i>
+                                            <i class="imgIconFor fa fa-google-plus google-plus" ng-show="item.type=='gplus'"></i>
+                                            <i class="imgIconFor fa fa-facebook Twter" ng-show="item.type=='facebook'"></i>
+                                            <i class="imgIconFor fa fa-instagram Twter" ng-show="item.type=='instagram'"></i>
+                                            <i class="imgIconFor fa fa-dropbox dropbox" ng-show="item.type=='dropbox'"></i>
+
+                                            <img src="{{item.media_url}}" class="img-responsive"  alt="" height="100">
+                                        </span>
+                                        <span ng-if="item.media_type == 'video'" class="video">
+                                            <i class="imgIconFor fa fa-twitter Twter" ng-show="item.type=='twitter'"></i>
+                                            <i class="imgIconFor fa fa-hdd-o " ng-show="item.type=='Uploaded'"></i>
+                                            <i class="imgIconFor fa fa-google google" ng-show="item.type=='gdrive'"></i>
+                                            <i class="imgIconFor fa fa-google-plus google-plus" ng-show="item.type=='gplus'"></i>
+                                            <i class="imgIconFor fa fa-facebook Twter" ng-show="item.type=='facebook'"></i>
+                                            <i class="imgIconFor fa fa-instagram Twter" ng-show="item.type=='instagram'"></i>
+                                            <i class="imgIconFor fa fa-dropbox dropbox" ng-show="item.type=='dropbox'"></i>
+                                            <video src="{{item.media_url}}" height="100" class="img-responsive" alt=""></video>
+                                            <img src="./imgs/play-9c1a34.png" >
+                                        </span>
+                                    </div>
+
+                            </div>
+                </div>
+
+    </div>
+    <div class="continue curate_btn curate_btn11">
+    <button  ng-mouseover="continue_story()"  ng-disabled="continue_story_status" ng-click="select_media(filter.filterValue, newStory, select_media_type)" class="btn moo_btn">CONTINUE </button>
+</div>
+</div>
+
+<script type="text/ng-template" id="deleteAccount.html">
+    <div class="event_delete modal-body">
+        <header>
+            <img src="./imgs/danger-ecffdc.png" />
+            <h4> Remove Content Channel?</h4><span>This action cannot be undo.</span>
+        </header>
+        <footer>
+            <button class="btn btn-primary" type="button" ng-click="ok()">Delete</button>
+            <button class="btn btn-warning" type="button" ng-click="close()" >Cancel</button>
+        </footer>
+    </div>
+</script>
+<script type="text/ng-template" id="imageSelector.html">
+    <div class="image_selector modal-body">
+        <header>
+           <h1>Select Media</h1>
+        </header>
+        <div class="clearfix"></div>
+        <ul  ng-class="loader?'':'imgoverflowy'" id="checkimagselect" infinite-scroll="nextcurl()" infinite-scroll-disabled='curlbusy' infinite-scroll-distance="1">
+            <li ng-if="images.length==0">No image found</li>
+
+          <li ng-repeat="img in images track by $index"  ><input type="checkbox" id="{{'cd'+$index}}" />
+            <label for="{{'cd'+$index}}" ng-click="changefun(img)">
+            <img src="{{img.media_url}}" on-error-src-hide alt="" ng-if="img.media_type=='photo'" />
+            <div>
+            <video  ng-if="img.media_type=='video' && img.type!='gplus'  && img.type!='facebook'"  poster="{{img.thumb_url}}" />
+            <video src="{{img.media_url}}" ng-if="img.media_type=='video' && (img.type=='gplus' || img.type=='facebook')" />
+            
+            </div>
+            <a target="_blank" href="{{img.media_url}}"  >
+            <div class="video_preview_hover"> Preview</div>
+            </a>
+            <!-- <img src="{{img.thumb_url}}"  ng-if="img.media_type=='video'" /> -->
+            <a target="_blank" href="{{img.media_url}}"  ng-if="img.media_type=='video'">
+                <i class="fa fa-play" ng-if="img.media_type=='video'" style="position: absolute;top:52px"></i>
+            </a>
+            </label>
+          </li>
+
+            <br/>
+            <!-- <a data-ng-click="nextcurl()" ng-show="next_query" class="btn btn-primary clearfix">Load More...</a>-->
+            <img src="./imgs/reload-c0a215.gif" class="text-center" ng-show="curlbusy" >
+        </ul>
+
+        <div class="text-center">
+
+           <img src="./imgs/reload-c0a215.gif" class="text-center" ng-show="loader">
+         </div>
+        <footer>
+            <button class="btn btn-primary" type="button" ng-click="ok()">OK</button>
+            <button class="btn btn-warning" type="button" ng-click="close()" >Cancel</button>
+        </footer>
+    </div>
+</script>

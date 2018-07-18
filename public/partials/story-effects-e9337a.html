@@ -1,0 +1,487 @@
+<div class="event_banner curate_banner">
+  <h1>{{newStory.story_title}} </h1>
+  <img src="./imgs/eddit-111c19.png" class="img-responsive" alt="">
+</div>
+
+<div class="curate_cnt">
+  <div class="col-xs-12 col-sm-4 col-md-3 sideBAr no_padd">
+    <div class="visible-xs toggleforMenuDiv">
+      <span class="toggleforMenu "></span>
+    </div>
+    <div id="menuSecD" class=" no_padd menuSecD ">
+      <div class="sidebar">
+        <div class="col-xs-12 col-sm-12 col-md-12 no_padd">
+          <button class="accordion active" id="FILTERS" ng-click="optionShow('FILTERS')" ng-hide="selectedMedia.media_type=='video'">FILTERS</button>
+          <div class="panel " ng-hide="selectedMedia.media_type=='video'" style="max-height: 379px;" ng-class="selectedMedia.media_type=='video'?'opacity0-2':''">
+            <div class="sori" ng-show="option.filter">
+              <div class="click edit_left">
+                <div class=" row11">
+                  <ul class="frame_out">
+                    <li>
+                      <div class="frame">
+                        <a ng-click="ImageFilter('Normal')" ng-class="selectedMedia.filterOption=='Normal'?'active':''">
+                          <img ng-src="{{filterimg1}}" width="100%" height="90px" alt="">
+                        </a>
+                        <span>Normal</span>
+                      </div>
+                    </li>
+
+                    <li>
+                      <div class="frame">
+                        <a ng-click="ImageFilter('Moon')" ng-class="selectedMedia.filterOption=='Moon'?'active':''">
+                          <img ng-src="{{filterimg2}}" width="100%" height="90px" alt="">
+                        </a>
+                        <span>Moon</span>
+                      </div>
+                    </li>
+
+                    <li>
+                      <div class="frame">
+                        <a ng-click="ImageFilter('Hudson')" ng-class="selectedMedia.filterOption=='Hudson'?'active':''">
+                          <img ng-src="{{filterimg3}}" width="100%" height="90px" alt="">
+                        </a>
+                        <span>Hudson</span>
+                      </div>
+                    </li>
+
+                    <li>
+                      <div class="frame">
+                        <a ng-click="ImageFilter('Gingham')" ng-class="selectedMedia.filterOption=='Gingham'?'active':''">
+                          <img src="{{filterimg4}}" width="100%" height="90px" alt="">
+                        </a>
+                        <span>Gingham</span>
+                      </div>
+                    </li>
+                    <li>
+                      <div class="frame">
+                        <a ng-click="ImageFilter('Retro')" ng-class="selectedMedia.filterOption=='Retro'?'active':''">
+                          <img src="{{filterimg5}}" width="100%" height="90px" alt="">
+                        </a>
+                        <span>Retro</span>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <button class="accordion" id="TRANSITION" ng-click="optionShow('TRANSITION')">TRANSITION {{transition}}</button>
+          <div class="panel" style="max-height: 400px;">
+            <div class="sori soriee1" ng-show="option.transition">
+              <ul class="dropdown">
+                <div class="control-group afreen customs">
+                  <label class="control control--radio">NONE
+                    <input type="radio" ng-model="selectedMedia.transition" ng-change="addTransition()" name="radio" value="none" />
+                    <div class="control__indicator"></div>
+                  </label>
+                  <label class="control control--radio">FADE
+                    <input type="radio" name="radio" ng-model="selectedMedia.transition" ng-change="addTransition()" value="fade" />
+                    <div class="control__indicator"></div>
+                  </label>
+                  <label class="control control--radio">FADE UP
+                    <input type="radio" name="radio" ng-model="selectedMedia.transition" ng-change="addTransition()" value="fade up" />
+                    <div class="control__indicator"></div>
+                  </label>
+                  <label class="control control--radio">FADE DOWN
+                    <input type="radio" name="radio" ng-model="selectedMedia.transition" ng-change="addTransition()" value="fade down" />
+                    <div class="control__indicator"></div>
+                  </label>
+                  <label class="control control--radio">FADE LEFT
+                    <input type="radio" name="radio" ng-model="selectedMedia.transition" ng-change="addTransition()" value="fade left" />
+                    <div class="control__indicator"></div>
+                  </label>
+                  <label class="control control--radio">FADE RIGHT
+                    <input type="radio" name="radio" ng-model="selectedMedia.transition" ng-change="addTransition()" value="fade right" />
+                    <div class="control__indicator"></div>
+                  </label>
+                  <label class="control control--radio">ROTATE
+                    <input type="radio" name="radio" ng-model="selectedMedia.transition" ng-change="addTransition()" value="rotate" />
+                    <div class="control__indicator"></div>
+                  </label>
+                  <label class="control control--radio">FLIP X
+                    <input type="radio" name="radio" ng-model="selectedMedia.transition" ng-change="addTransition()" value="flip x" />
+                    <div class="control__indicator"></div>
+                  </label>
+                  <label class="control control--radio">FLIP Y
+                    <input type="radio" name="radio" ng-model="selectedMedia.transition" ng-change="addTransition()" value="flip y" />
+                    <div class="control__indicator"></div>
+                  </label>
+                  <label class="control control--radio" ng-hide="selectedMedia.media_type=='video'">ZOOM
+                    <input type="radio" name="radio" ng-model="selectedMedia.transition" ng-change="addTransition()" value="zoom" />
+                    <div class="control__indicator"></div>
+                  </label>
+                  <label class="control control--radio">OVERLAY OPTION
+                    <input type="radio" name="radio" ng-model="selectedMedia.transition" ng-change="addTransition()" value="overlay" />
+                    <div class="control__indicator"></div>
+                  </label>
+                </div>
+              </ul>
+              <div class="trim_sound" style="margin:0 24px;color: #e0e0e0;" ng-hide="selectedMedia.media_type=='video'">
+                Image Visibility Duration
+                <div class="cmpltdv" style="position: relative;">
+                  <div>
+                    <input type="text" id="range_29a" class="hidden" ng-model="selectedMedia.image_visibility" value="" ng-change="setImageVisibility()"
+                      name="range" />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <button class="accordion " id="SOUNDTRACK" ng-click="optionShow('SOUNDTRACK')">SOUNDTRACK</button>
+          <div class="panel" ng-show="option.sound" style="max-height: 600px;">
+            <div class="play-pause ">
+              <ul class="dropdown"  >
+                  <li>
+                      <div class="control-group afreen customs" style="margin-top:0px;">
+                        <label class="control control--radio" style="margin-bottom:0px;max-width: 250px;">No Audio
+                          <div class="btn audio-play">&nbsp;
+                            <!-- <i class="fa fa-play-circle"></i> -->
+                          </div>
+                          <div class="btn audio-pause" style="display:none" >
+                            <!-- <i class="fa fa-pause-circle"></i> -->
+                          </div>
+                          <input type="radio" name="radio1" ng-click="resetSoundData()" checked />
+                          <div class="control__indicator sound">
+                          </div>
+                        </label>
+                      </div>
+                    </li>
+                <li ng-repeat="sound in allSound">
+                  <div class="control-group afreen customs" style="margin-top:0px;">
+                    <label class="control control--radio" style="margin-bottom:0px;max-width: 250px;">{{sound.audio_url}}
+                      <div class="btn audio-play" id="" onclick="playAudio(this,'play')" >
+                        <i class="fa fa-play-circle"></i>
+                      </div>
+                      <div class="btn audio-pause" style="display:none" id="" onclick="playAudio(this,'pause')">
+                        <i class="fa fa-pause-circle"></i>
+                      </div>
+                      <input type="radio" name="radio1" ng-click="trim_sound(sound)" class="sound_{{sound.id}}" />
+                      <div class="control__indicator sound_{{sound.id}}">
+                        <audio id="player">
+                          <source ng-src="story_audio{{sound.story_id==0?'':'/story_'+sound.story_id}}/{{sound.audio_url}}" type="audio/mp3">
+                        </audio>
+                      </div>
+                    </label>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="sori soriee">
+              <div class="click">
+                <div class="customs">
+                  <ul class="dropdown frame_out soundtrack">
+                    <li>
+                      <div class="toggle_soundtrack">{{sound.audio_url}}
+                        <div ng-show="allSound.length>0 && media.sound.audio_url">
+                          <div class="nu drp_sound alter_switch_color">
+                            <label class="switch">
+                              <input id="swtch" type="checkbox" ng-model="media.sound.play_during_clips">
+                              <div class="slider round"></div>
+                            </label>
+                            <span>Play during clips</span>
+                          </div>
+
+                          <div class="nu drp_sound alter_switch_color">
+                            <label class="switch">
+                              <input id="swtch" type="checkbox" ng-model="media.sound.play_full_track">
+                              <div class="slider round"></div>
+                            </label>
+                            <span>Play full track</span>
+                          </div>
+
+                          <div class="trim_sound" ng-hide="media.sound.play_full_track" style="margin-top:25px;">
+                            Trim Sound
+                            <div class="cmpltdv" style="position: relative;">
+                              <div>
+                                <input type="text" id="range_27a" class="hidden" name="range" value="" />
+                              </div>
+                            </div>
+                          </div>
+
+                          <div class="trim_sound" style="margin-top:25px;">
+                            Delay Sound
+                            <div class="cmpltdv" style="position: relative;">
+                              <div>
+                                <input type="text" id="range_28a" class="hidden" value="" name="range" />
+                              </div>
+                            </div>
+                          </div>
+
+                         
+                        </div>
+                        <div class="drop has-advanced-upload dropzone">
+                          <div ngf-drop="upload($file)" ngf-select="upload($file)" ngf-duration="$duration" class="drop-box"
+                            ngf-drag-over-class="'dragover'"  ngf-allow-dir="true" accept="audio/mp3"
+                            ngf-pattern="'audio/mp3'" name="event_picture" ng-model="upload.audio" ng-required>
+                             <?xml version="1.0" ?><svg class="drop_sound" for="fileIpnSidbr" xmlns="http://www.w3.org/2000/svg" width="50" height="43" viewBox="0 0 50 43"><path d="M48.4 26.5c-.9 0-1.7.7-1.7 1.7v11.6h-43.3v-11.6c0-.9-.7-1.7-1.7-1.7s-1.7.7-1.7 1.7v13.2c0 .9.7 1.7 1.7 1.7h46.7c.9 0 1.7-.7 1.7-1.7v-13.2c0-1-.7-1.7-1.7-1.7zm-24.5 6.1c.3.3.8.5 1.2.5.4 0 .9-.2 1.2-.5l10-11.6c.7-.7.7-1.7 0-2.4s-1.7-.7-2.4 0l-7.1 8.3v-25.3c0-.9-.7-1.7-1.7-1.7s-1.7.7-1.7 1.7v25.3l-7.1-8.3c-.7-.7-1.7-.7-2.4 0s-.7 1.7 0 2.4l10 11.6z"></path></svg>
+                             <div class="drop_sound "><strong>Choose a file</strong></div>
+                             
+                           </div>
+                         </div>
+                         <div class="clearfix"></div>
+                         <uib-progressbar class="progress-striped active" ng-if="audioProcess"   max="100" animate="true" value="progressPercentage?progressPercentage:0" type="danger"><i>{{progressPercentage?progressPercentage:0}}% / 100</i></uib-progressbar>
+                       </li>
+                      
+                     </ul>
+                   </div>
+                 </div>
+               </div>
+             </div>
+           </div>
+         </div>
+       </div>
+     </div>
+
+     <div class="col-xs-12 col-sm-8 col-md-9 sideBArright EdiClmn no_padd">
+       <div class="whiteup">
+         <div class="">
+           <div class="col-xs-12 col-sm-12 col-md-12 paddXsZ">
+             <h4>Edit your story
+            
+             </h4>
+           </div>
+
+           <div class="col-xs-12 col-sm-12 col-md-12 no_padd">
+             <div class="settings_cont">
+               <!-- Nav tabs -->
+               <!-- <ul class="nav nav-tabs" role="tablist">
+                 <li role="presentation"><a ng-click="textEffect.textEdit()" class="edit_im" ></a></li>
+               </ul> -->
+
+               <!-- Tab panes -->
+               <div class="completeDiv" ng-class="text_edit?'ng-show':'ng-hide'">
+                 <div role="" class=" completeDiv " id="home">
+                   <div class="col-md-6 col-sm-6 col-xs-12 columnEdit">
+                     <div class="columnEdit11">
+                       <h3 class="handpointer" ng-click="textEffect.addTextBox()">ADD TEXT</h3>
+
+
+                       <div class="column">
+                         <div class="col-xs-6 col-sm-4 col-md-3">
+                           <p>Font size </p>
+                         </div>
+                         <div class="col-xs-6 col-sm-6 col-md-5 text-right">
+                           <div class="editing-font MarginZ">
+                             <div ng-click="textEffect.fontSizeDec()" class="change_qty minus cursor_hover">&#45;</div>
+                             <input type="numeric" ng-model="selectedMedia.text.fontSize" class="edit-page-font-size" value="1">
+                             <div ng-click="textEffect.fontSizeInc()" class="change_qty plus cursor_hover">&#43;</div>
+                           </div>
+                         </div>
+                       </div>
+
+                       <div class="column">
+                         <div class="col-xs-6 col-sm-4 col-md-3">
+                           <p>Font</p>
+                         </div>
+                         <div class="col-xs-6 col-sm-6 col-md-5 text-right">
+                           <div class="list_drop edit_listdrp">
+                             <select ng-model="selectedMedia.text.fontFamily" class="edit-page-select-box" >
+                               <option value="sans-serif">Open Sans</option>
+                               <option value="Lato">Lato</option>
+                               <option value="Verdana">Tahoma</option>
+                             </select>
+                           </div>
+                         </div>
+                       </div>
+
+                       <div class="column">
+                         <div class="col-xs-6 col-sm-4 col-md-3">
+                           <p>Colour</p>
+                         </div>
+                         <div class="col-xs-6 col-sm-6 col-md-5  text-right">
+                           <!-- <input type="color" ng-model="selectedMedia.text.color" name="color" /> -->
+                           <color-picker ng-model="selectedMedia.text.color" options="options"></color-picker>
+                           <!-- <spectrum-colorpicker ng-model="someModel"></spectrum-colorpicker> -->
+                           <!-- <button class="jscolor {valueElement:'chosen-value', onFineChange:'setTextColor(this)'}"
+                           style="width: 30px; height:24px; border:1px #ccc solid; border-radius:3px;"></button> -->
+                        </div>
+                      </div>
+
+                      <div class="column">
+                        <div class="col-xs-6 col-sm-4 col-md-3">
+                          <p>Leading</p>
+                        </div>
+                        <div class="col-xs-6 col-sm-6 col-md-5  text-right">
+                          <div class="editing-font MarginZ">
+                            <div ng-click="textEffect.leadingDec()" class="change_qty minus cursor_hover">&#45;</div>
+                            <input type="numeric" ng-model="selectedMedia.text.leading" class="edit-page-font-size">
+                            <div ng-click="textEffect.leadingInc()" class="change_qty plus cursor_hover">&#43;</div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="column">
+                        <div class="col-xs-6 col-sm-4 col-md-3">
+                          <p>Alignment</p>
+                        </div>
+                        <div class="col-xs-6 col-sm-6 col-md-5  text-right radio-padding">
+                          <label class="radio-inline">
+                            <input type="radio" ng-model="selectedMedia.text.alignment" class="ng-hide" name="optradio" value="left">
+                            <span class="LineSec" ng-class="selectedMedia.text.alignment=='left'?'active':''">
+                              <span class="LineBigone LineCmn"></span>
+                              <span class="LineSmallone LineCmn"></span>
+                              <span class="LineBigone LineCmn"></span>
+                              <span class="LineSmallone LineCmn"></span>
+                            </span>
+                          </label>
+                          <label class="radio-inline">
+                            <input type="radio" ng-model="selectedMedia.text.alignment" class="ng-hide" name="optradio" value="center">
+                            <span class="LineSec" ng-class="selectedMedia.text.alignment=='center'?'active':''">
+                              <span class="LineBigTwo LineTwoCmn"></span>
+                              <span class="LineSmalTwo LineTwoCmn"></span>
+                              <span class="LineBigTwo LineTwoCmn"></span>
+                              <span class="LineSmalTwo LineTwoCmn"></span>
+                            </span>
+                          </label>
+                          <label class="radio-inline">
+                            <input type="radio" ng-model="selectedMedia.text.alignment" class="ng-hide" name="optradio" value="right">
+                            <span class="LineSec" ng-class="selectedMedia.text.alignment=='right'?'active':''">
+                              <span class="LineSmalThree LineThreeCmn"></span>
+                              <span class="LineBigThree LineThreeCmn"></span>
+                              <span class="LineSmalThree LineThreeCmn"></span>
+                              <span class="LineBigThree LineThreeCmn"></span>
+                            </span>
+                          </label>
+                          <div class="align aignment MarginZ">
+                            <a href="#">
+
+                            </a>
+                            <a href="#">
+
+                            </a>
+                            <a href="#">
+
+                            </a>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="column">
+                        <div class="col-xs-6 col-sm-4 col-md-3">
+                          <p>Opacity</p>
+                        </div>
+                        <div class="col-xs-6 col-sm-6 col-md-5  text-right">
+                          <div class="list_drop edit_listdrp">
+                            <select ng-model="selectedMedia.text.opacity" class="edit-page-select-box">
+                              <option value="100">100%</option>
+                              <option value="80">80%</option>
+                              <option value="60">60%</option>
+                              <option value="40">40%</option>
+                              <option value="20">20%</option>
+                            </select>
+
+                          </div>
+                        </div>
+                      </div>
+
+                    </div>
+                  </div>
+                  <div class="col-md-6 col-sm-6 col-xs-12 m-t-15 paddingZ  columnEditRight">
+                    <div class="col-md-12 col-sm-12 col-xs-12 paddingZ " id="imagViewOnD" style="position: relative;    overflow: auto;">
+                      <div id="dragContainer" style="position: relative;">
+                        <img crossOrigin="anonymous" src="{{selectedMedia.media_url}}" style="display: none" id="media_img" />
+                        <img id="selectedMedia" crossOrigin="anonymous" ng-src="{{canvas_image}}" ng-if="selectedMedia.media_type=='photo'" width="400"
+                          height="300" alt="image for resizing">
+                        <video controls ng-if="selectedMedia.media_type=='video'" ng-src="{{canvas_image}}" width="400" controlsList="nodownload"></video>
+
+                        <!--  Dummy Purpose -->
+                        <canvas id="canvas" style="display:none"></canvas>
+                        <video id="dummyVideo" controls="" style="display:none"></video>
+                        <!--  /Dummy Purpose -->
+                        
+                        <div uidraggable id="addtextbox" style="display:none;width:50px;position: absolute;">
+                          <i class="fa fa-arrows" style="
+                            color: #000;
+                            border: 1px solid #fff;" aria-hidden="true"></i>
+                          <textarea id="addtextarea" placeholder="Enter Sub-Title" wrap="hard" ng-model="selectedMedia.text.value"> </textarea>
+                        </div>
+                        <div class="clearfix"></div>
+                        <a class="btn btn-success btn-sm pull-right textEffectBtn" ng-click="textEffect.resetImage()">Reset</a>
+                        <a class="btn btn-success btn-sm pull-right textEffectBtn" ng-click="textEffect.saveText()">Save</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="vid_yu popo popo11 ">
+          <div class="vid_list grey_slide test mCustomScrollbar select-media">
+            <div id="" class="showcase">
+              <!-- <section id="examples"> -->
+              <!-- content -->
+              <div class="content">
+                <ul class="clsdfter">
+                  <li ng-repeat="item in media" ng-class="(item.media_url==selectedMedia.media_url)?'active':''">
+                    <a ng-click="selectMedia(item)" class="bg-no">
+                      <img src="{{item.media_url}}" ng-if="item.media_type=='photo'" class="img-responsive" style="max-width: 120px"
+                        alt="">
+                      <video src="{{item.media_url}}" ng-if="item.media_type=='video'" style="max-width: 120px" alt="">
+                    </a>
+                  </li>
+                </ul>
+              </div>
+              <!-- </section> -->
+            </div>
+          </div>
+
+          <div class="continue" style="margin-right: 14px;">
+            <a ui-sref="master.selectMedia">
+              << Back</a>
+                <a style="cursor:pointer;margin-left:10px" id="previewvideo" ng-click="story_video_preview()">PREVIEW </a>
+
+                <!--  <a ui-sref="recording" style="margin-left: 10px;">CONTINUE </a> -->
+          </div>
+
+          <div class="videoforlightBox">
+            <div class="videoWrapper">
+              <iframe src="https://player.vimeo.com/video/206448962" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen
+                allowfullscreen></iframe>
+
+              <a ui-sref="recording" class="pubLsBtnD">PUBLISH</a>
+              <a id="closvideo" onclick="closvideobtn();">
+                <img src="./imgs/close-mobile-menu-22dd4d.png">
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <script type="text/ng-template" id="videoPreview.html">
+  <div class="modal-body punditVideoPreview" id="modal-body" >
+      <button type="button" class="btn btn_cross" ng-click="close()" >
+        <img style="margin-top: 14px;margin-right: -12px;"  src="./imgs/close-mobile-menu-22dd4d.png"></i></button>
+      <div class="text-center" ng-hide="videoWhammyPreview"  >
+      <img src="./imgs/reload-c0a215.gif"  />
+      <br/>
+      Preview is processing...
+      </div>
+        <video  width="300"  ng-show="videoWhammyPreview"  id="awesome" ng-src="{{videoWhammyPreview}}"  controls autoplay loop controlsList="nodownload" ></video>
+      <!-- <video controls ng-hide="loading" src="/story_videos/story_{{story_id}}/{{pudnitVideo.video_url}}"></video> -->
+      
+      <button ng-show="videoWhammyPreview" ng-click="publishVideo()" class="pubLsBtnD">Publish
+      <img src="./imgs/reload-c0a215.gif" class="publishLoader" ng-show="loading"  />
+      </button>&nbsp;
+      <a ng-show="videoWhammyPreview" style="margin: 0px 10px;"  class="pubLsBtnD" href="{{videoWhammyPreview}}">Download
+        {{newStory.story_title}}.mp4
+      </a>&nbsp;
+  </div>
+</script>
+<script>
+ function playAudio(element, status){
+   if(status=='play'){
+    $(element).siblings('.audio-pause').css({"display": "inline-block"});
+    $(element).css({"display": "none"});
+    $(element).siblings('.control__indicator').find('audio').trigger("play");
+ 
+   } else if(status=='pause'){
+    $(element).siblings('.audio-play').css({"display": "inline-block"});
+    $(element).css({"display": "none"});
+    $(element).siblings('.control__indicator').find('audio').trigger("pause");
+   }
+ }
+
+</script>

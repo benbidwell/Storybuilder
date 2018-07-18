@@ -1,0 +1,54 @@
+
+FADE
+
+ffmpeg -i video-1515575921.mp4 -filter:v "fade=in:0:30, fade=out:200:30" -filter:a "afade=in:0:44100, afade=out:2601900:44100" -c:v libx264 -c:a aac output.mp4
+
+
+CROSSFADE
+
+ffmpeg -i video-1515575921.mp4 -i output.mp4 -lavfi "blend=all_expr='if(lte((W/2-sqrt((X-W/2)*(X-W/2)))+N*SW,W/2),A,B)'" OUT.mp4
+
+After resolved sar problem final CROSSFADE command
+
+ffmpeg -i /var/www/html/clipcrowd/public/story_media/black.mp4 -i video.mp4  -lavfi "[0]setsar=3/2[a];[1]setsar=3/2[b];[a][b]blend=all_expr='if(lte((W/2-sqrt((X-W/2)*(X-W/2)))+N*SW,W/2),A,B)'" -strict -2  output.mp4
+
+1- Zooming only for image
+
+ffmpeg -i image-1.jpg  -filter_complex "zoompan=z='zoom+0.002':d=25*4:s=360x240" -pix_fmt yuv420p -c:v libx264 out.mp4
+
+ffmpeg -i output.mp4 -vf "rotate=a=PI/2+0.002:n=25*4" out.mp4
+
+Zoom for video
+
+$ffmpeg_command='ffmpeg -i input.mp4 -vf "zoompan=z='1+(1.4*in/300)':x='70*in/300':y='190*in/300':d=1" -strict -2 output.mp4
+
+
+
+Mirror Effects
+
+ffmpeg -i inputfile.mp4 -filter_complex "split [left][tmp]; [tmp] hflip[right]; [left][right] hstack" outputfile.mp4
+
+
+Rotate Effects
+ffmpeg -i output.mp4 -c copy -metadata:s:v:0 rotate=180 out.mp4
+
+
+Slide right
+
+ffmpeg -i video-1515575921.mp4 -i output.mp4  -filter_complex "[0:v][1:v]overlay=x='if(lte(-w+(t)*100,1),-w+(t)*100,1),':y=0 [out] " -map '[out]' -y out.mp4
+
+Slide left
+
+ffmpeg -i video-1515575921.mp4 -i output.mp4 -filter_complex "[0:v][1:v]overlay=x='if(lte(w-(t)*100,1),w-(t)*100,1)':y=0[out]" -map '[out]' -y out.mp4
+
+Slide bottom
+
+ffmpeg -i video-1515575921.mp4 -i output.mp4 -filter_complex "[0:v][1:v]overlay=y='if(lte(-h+(t)*100,1),-h+(t)*100,1)':x=0[out]" -map '[out]' -y out.mp4
+
+slide up
+
+ffmpeg -i video-1515575921.mp4 -i output.mp4 -filter_complex "[0:v][1:v]overlay=y='if(lte(h-(t)*100,1),h-(t)*100,1)':x=0[out]" -map '[out]' -y out.mp4
+
+
+Blank video
+ffmpeg -t 10 -f lavfi -i color=c=black:s=360x240 -c:v libx264 -tune stillimage -pix_fmt yuv420p black.mp4
